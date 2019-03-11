@@ -1,0 +1,3 @@
+AuthControllers:
+    resource: ../../src/Authentication/Infrastructure/UI/Http
+    type: annotation

@@ -1,0 +1,23 @@
+Authentication\Domain\Entity\AccessToken:
+  type: entity
+  table: AccessTokens
+  repositoryClass: Authentication\Infrastructure\Repositories\AccessTokenRepository
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+
+  manyToOne:
+    user:
+      targetEntity: Authentication\Domain\Entity\User
+      inversedBy: accessTokens
+
+  fields:
+    token:
+      type: text
+    audience:
+      type: string
+    type:
+      type: string
+    active:
+      type: boolean

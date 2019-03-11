@@ -1,0 +1,20 @@
+Authentication\Domain\Entity\Role:
+  type: entity
+  table: Roles
+  repositoryClass: Authentication\Infrastructure\Repositories\RoleRepository
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+
+  fields:
+    role:
+      type: string
+      unique: true
+    name:
+      type: string
+      unique: true
+  manyToMany:
+    users:
+      targetEntity: Authentication\Domain\Entity\User
+      inversedBy: roles
