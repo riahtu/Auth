@@ -69,7 +69,7 @@ class UserController extends TransactionalRestController
             array('USER_ROLE')
         );
 
-        $response = $this->runAsTransaction(
+        $response['token'] = $this->runAsTransaction(
             $service,
             $tokenRequest
         );
