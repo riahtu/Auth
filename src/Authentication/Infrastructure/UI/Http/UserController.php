@@ -49,7 +49,6 @@ class UserController extends TransactionalRestController
 
         return new JsonResponse($response, Response::HTTP_CREATED);
     }
-
     /**
      * @param CreateTokenService $service
      *
@@ -57,7 +56,7 @@ class UserController extends TransactionalRestController
      *
      *
      * @return JsonResponse
-     * @Rest\Post("/api/token/create" , name="create_jwt_token")
+     * @Rest\Post("/api/login" , name="create_jwt_token")
      */
     public function createJwtToken(CreateTokenService $service, Request $request): JsonResponse
     {
@@ -73,13 +72,6 @@ class UserController extends TransactionalRestController
         $response = $this->runAsTransaction(
             $service,
             $tokenRequest
-//            new CreateTokenRequest(
-//                $this->getUser(),
-//                $request->get('type'),
-//                $request->get('intendedFor'),
-//                $request->get('subject'),
-//                json_decode($request->get('requestData'))
-//            )
         );
         return new JsonResponse($response, Response::HTTP_CREATED);
     }

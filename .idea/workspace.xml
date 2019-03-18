@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37f5d6a8-f200-4dcd-995f-8df5bf80e93d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Auth.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Auth.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/dama_doctrine_test_bundle.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/dama_doctrine_test_bundle.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Authenticators/UserCredentialsAuthenticatorService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Authenticators/UserCredentialsAuthenticatorService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,29 +46,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="69" column="28" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
+            <state relative-caret-position="363">
+              <caret line="83" column="67" lean-forward="true" selection-start-line="83" selection-start-column="67" selection-end-line="83" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="50" column="55" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Authentication/Domain/Services/Token/CreateJwtTokenService.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="87" column="22" lean-forward="true" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="31" />
+            <state relative-caret-position="527">
+              <caret line="87" column="54" lean-forward="true" selection-start-line="87" selection-start-column="54" selection-end-line="87" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -88,17 +67,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="241" selection-start-line="241" selection-end-line="241" />
+            <state relative-caret-position="4922">
+              <caret line="239" selection-start-line="239" selection-end-line="239" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Authenticators/UserCredentialsAuthenticatorService.php">
+        <entry file="file://$PROJECT_DIR$/src/Authentication/Domain/Services/Token/CreateJwtTokenService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="152" selection-start-line="152" selection-end-line="152" />
+            <state relative-caret-position="1012">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
@@ -141,7 +120,6 @@
         <option value="$PROJECT_DIR$/tests/RoleTest.php" />
         <option value="$PROJECT_DIR$/tests/SetUp/DomainTestCase.php" />
         <option value="$PROJECT_DIR$/OpenSSLKeyGen" />
-        <option value="$PROJECT_DIR$/src/Authentication/Domain/Services/Token/CreateJwtTokenService.php" />
         <option value="$PROJECT_DIR$/tests/TokenTest.php" />
         <option value="$PROJECT_DIR$/src/Authentication/Domain/Services/EventListeners/RequestListener.php" />
         <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/RoleController.php" />
@@ -151,6 +129,8 @@
         <option value="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" />
         <option value="$PROJECT_DIR$/src/Authentication/Application/Service/Authenticators/UserCredentialsAuthenticatorService.php" />
         <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/UserController.php" />
+        <option value="$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php" />
+        <option value="$PROJECT_DIR$/src/Authentication/Domain/Services/Token/CreateJwtTokenService.php" />
       </list>
     </option>
   </component>
@@ -253,7 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -277,29 +256,48 @@
               <item name="Auth" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Authentication" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Auth" type="b2602c69:ProjectViewProjectNode" />
               <item name="Auth" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Authentication" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Auth" type="b2602c69:ProjectViewProjectNode" />
               <item name="Auth" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Authentication" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Service" type="462c0819:PsiDirectoryNode" />
+              <item name="Token" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Auth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Auth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="nelmio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Auth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="nelmio" type="462c0819:PsiDirectoryNode" />
+              <item name="cors-bundle" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,31 +353,31 @@
       <workItem from="1552465881877" duration="383000" />
       <workItem from="1552471318988" duration="3460000" />
       <workItem from="1552474878456" duration="2680000" />
-      <workItem from="1552484569102" duration="1101000" />
+      <workItem from="1552484569102" duration="3679000" />
+      <workItem from="1552491959897" duration="2996000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23307000" />
+    <option name="totallyTimeSpent" value="28881000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2739872" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2771855" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32998884" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" visible="true" weight="0.39910814" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.39910814" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32998884" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.1962096" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.1962096" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.39910814" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.5295429" />
       <window_info anchor="bottom" id="SQL Generator" order="13" weight="0.32998884" />
@@ -401,45 +399,24 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/UserController.php</url>
-          <line>72</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php</url>
-          <line>45</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenRequest.php</url>
           <line>34</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/UserController.php</url>
+          <line>83</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Authentication/Domain/Services/Token/CreateJwtTokenService.php</url>
+          <line>56</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="97" selection-start-line="20" selection-start-column="97" selection-end-line="20" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine_migrations.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/data-fixtures/lib/Doctrine/Common/DataFixtures/AbstractFixture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/RoleFixture.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -591,13 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://e442402e-d953-4388-968b-c168a82ac257/schema/acl/table/AccessTokens">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://e442402e-d953-4388-968b-c168a82ac257/schema/acl/table/Roles">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -681,13 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Authenticators/UserCredentialsAuthenticatorService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="152" selection-start-line="152" selection-end-line="152" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/debug/ErrorHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -716,31 +679,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Authenticators/UserCredentialsAuthenticatorService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/nelmio/cors-bundle/NelmioCorsBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/lcobucci/jwt/src/Token.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5077">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e442402e-d953-4388-968b-c168a82ac257/schema/acl/table/AccessTokens">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="241" selection-start-line="241" selection-end-line="241" />
+        <state relative-caret-position="4922">
+          <caret line="239" selection-start-line="239" selection-end-line="239" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Authentication/Domain/Services/Token/CreateJwtTokenService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="87" column="22" lean-forward="true" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="31" />
+        <state relative-caret-position="1012">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php">
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-kernel/HttpKernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="50" column="55" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
+        <state relative-caret-position="167">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="69" column="28" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
+        <state relative-caret-position="363">
+          <caret line="83" column="67" lean-forward="true" selection-start-line="83" selection-start-column="67" selection-end-line="83" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="87" column="54" lean-forward="true" selection-start-line="87" selection-start-column="54" selection-end-line="87" selection-end-column="54" />
         </state>
       </provider>
     </entry>

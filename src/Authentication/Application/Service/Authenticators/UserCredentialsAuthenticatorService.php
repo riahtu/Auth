@@ -83,7 +83,7 @@ class UserCredentialsAuthenticatorService extends AbstractGuardAuthenticator
 
         $route = $request->attributes->get('_route');
         if(!$request->headers->has('php-auth-user') || $route != 'create_jwt_token' ){
-            if(!$request->get('email')){
+            if(!$request->get('username')){
                 return false;
             }
         }
@@ -126,7 +126,7 @@ class UserCredentialsAuthenticatorService extends AbstractGuardAuthenticator
         }
 
         return [
-            'client_id'     => $request->get('email'),
+            'client_id'     => $request->get('username'),
             'client_secret' => $request->get('password'),
         ];
 
@@ -150,7 +150,7 @@ class UserCredentialsAuthenticatorService extends AbstractGuardAuthenticator
      */
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        $user = $this->em->getRepository(User::class)->findOneBy(['email' => $credentials['client_id']]);
+        $user = $this->em->getRepository(User::class)->findOneBy(['username' => $credentials['client_id']]);
 
         if ( ! $user) {
             return null;

@@ -36,11 +36,11 @@ class CreateTokenService implements TransactionalServiceInterface
     /**
      * @param CreateTokenRequest $request
      *
-     * @return string
+     * @return array
      *
      * @throws \Exception
      */
-    public function execute($request = null): string
+    public function execute($request = null): array
     {
 
         $this->isPossible($request);
@@ -68,7 +68,9 @@ class CreateTokenService implements TransactionalServiceInterface
             )
         );
 
-        return $token;
+        return array(
+            'token' => $token
+        );
     }
 
     private function isPossible($request): void
