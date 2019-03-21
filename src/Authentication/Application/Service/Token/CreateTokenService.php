@@ -69,7 +69,7 @@ class CreateTokenService implements TransactionalServiceInterface
         );
 
         return array(
-            'token' => $token
+            'token' => $token->getPayload()
         );
     }
 
