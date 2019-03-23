@@ -38,7 +38,8 @@ class CreateJwtTokenService
         array $requestedData,
         $audience,
         $subject
-    ): \Lcobucci\JWT\Token {
+    ): Token
+    {
         $builder = $this->constructBasicTokenFromRequest($user, $audience, $subject);
 
         $builder    = $this->addAdditionalData(

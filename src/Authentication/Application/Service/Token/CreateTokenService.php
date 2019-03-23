@@ -36,7 +36,7 @@ class CreateTokenService implements TransactionalServiceInterface
     /**
      * @param CreateTokenRequest $request
      *
-     * @return array
+     * @return string
      *
      * @throws \Exception
      */
@@ -68,7 +68,7 @@ class CreateTokenService implements TransactionalServiceInterface
             )
         );
 
-        return $token->getPayload();
+        return $token->__toString();
     }
 
     private function isPossible($request): void
