@@ -9,11 +9,13 @@
 namespace Authentication\Resources\DataFixtures;
 
 
+use Authentication\Domain\Entity\Permission;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Authentication\Domain\Entity\Role;
 
-class RoleFixture extends Fixture
+class RoleFixture extends Fixture implements DependentFixtureInterface
 {
 
     /**
@@ -23,35 +25,28 @@ class RoleFixture extends Fixture
      */
     public function load(ObjectManager $manager)
     {
+
+        $permissionRepo = $manager->getRepository(Permission::class);
         $roles = array(
             'ROLE_USER'  => array(
                 'name'       => 'User',
                 'permission' => array(
-                    'make api token',
-                    'create_jwt_token'
+                    'create_token',
                 ),
             ),
             'ROLE_ADMIN' => array(
                 'name'       => 'Admin',
                 'permission' => array(
-                    'view_users_agreements',
                     'assign_role_to_user',
                     'remove_role_from_user',
-                    'view_data_collections_of_users',
-                    'get_user_data_collection',
                     'make_role',
-                    'delete_role',
-                    'assign_contract_to_role',
-                    'create_new_contract',
-                    'assign_permission_to_role'
+                    'delete_role'
                 ),
             ),
             'ROLE_ANON'  => array(
                 'name'       => 'Anon',
                 'permission' => array(
-                    'new_user_register',
-//                    'create_jwt_token',
-                    'check_jwt_token'
+                    'new_user_register'
                 ),
             ),
         );
@@ -61,8 +56,22 @@ class RoleFixture extends Fixture
                 $specs['name']
             );
             $this->setReference($role->getName(), $role);
+            foreach ($specs['permission'] as $permissionName){
+                /** @var Permission $permission */
+                $permission = $permissionRepo->findByName($permissionName);
+                $role->addPermission($permission);
+            }
             $manager->persist($role);
         }
         $manager->flush();
+    }
+
+
+
+    public function getDependencies()
+    {
+        return array(
+            PermissionFixture::class,
+        );
     }
 }

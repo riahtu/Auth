@@ -15,7 +15,7 @@ class RoleDoesNotExistException extends DomainException implements DomainExcepti
 {
     public function __construct(array $array)
     {
-        $return['message'] = 'Role does not exist';
+        $return['error'] = 'Role does not exist';
         $return['resource'] = $array;
         parent::__construct(Response::HTTP_CONFLICT, $return);
     }

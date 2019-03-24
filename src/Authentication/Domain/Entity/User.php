@@ -208,4 +208,20 @@ class User implements UserInterface, UserValidationInterface
         return $this;
     }
 
+    /**
+     * @param string $route
+     * @return bool|Permission
+     */
+    public function hasPermission(string $route)
+    {
+        /**@var Role $role */
+        foreach ($this->roles as $role){
+            $check = $role->hasPermission($route);
+            if($check){
+                return $check;
+            }
+        }
+        return false;
+    }
+
 }

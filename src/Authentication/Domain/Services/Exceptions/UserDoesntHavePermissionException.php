@@ -16,7 +16,7 @@ class UserDoesntHavePermissionException extends DomainException implements Domai
 
     public function __construct(array $array)
     {
-        $return['message'] = 'User does not have permission!';
+        $return['error'] = 'User does not have permission!';
         $return['resource'] = $array;
         parent::__construct(Response::HTTP_UNAUTHORIZED, $return);
     }

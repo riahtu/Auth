@@ -16,7 +16,7 @@ class RequestedDataNotValidException extends DomainException implements DomainEx
     public function __construct(array $array)
     {
         $return['resource'] = $array;
-        $return['message'] = 'Requested data is not valid';
+        $return['error'] = 'Requested data is not valid';
         parent::__construct(Response::HTTP_CONFLICT , $return);
     }
 

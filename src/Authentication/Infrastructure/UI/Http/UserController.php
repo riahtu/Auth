@@ -55,7 +55,7 @@ class UserController extends TransactionalRestController
      * @IsGranted("ROLE_USER")
      *
      * @return JsonResponse
-     * @Rest\Post("/api/token/create" , name="create_jwt_token")
+     * @Rest\Post("/api/token/create" , name="create_token")
      */
     public function createJwtToken(CreateTokenService $service, Request $request): JsonResponse
     {

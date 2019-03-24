@@ -15,7 +15,7 @@ class TokenGeneratorErrorException extends DomainException implements DomainExce
 {
     public function __construct(array $array)
     {
-        $return['message'] = 'Something went wrong while generating your key';
+        $return['error'] = 'Something went wrong while generating your key';
         $return['resource'] = $array;
         parent::__construct(Response::HTTP_INTERNAL_SERVER_ERROR, $return);
     }

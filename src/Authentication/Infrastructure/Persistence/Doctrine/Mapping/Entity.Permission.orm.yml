@@ -1,0 +1,20 @@
+Authentication\Domain\Entity\Permission:
+  type: entity
+  table: Permissions
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+
+  repositoryClass: Authentication\Infrastructure\Repositories\PermissionRepository
+
+  fields:
+    name:
+      type: string
+    action:
+      type: string
+
+  manyToMany:
+    roles:
+      targetEntity: Authentication\Domain\Entity\Role
+      mappedBy: permissions

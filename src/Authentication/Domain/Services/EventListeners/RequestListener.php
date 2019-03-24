@@ -8,6 +8,7 @@
 
 namespace Authentication\Domain\Services\EventListeners;
 
+use Authentication\Domain\Services\Permission\CheckForPermissionService;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -21,11 +22,17 @@ class RequestListener implements EventSubscriberInterface
      * @var TokenStorageInterface
      */
     private $securityStorage;
+    /**
+     * @var CheckForPermissionService
+     */
+    private $checkForPermissionService;
 
     public function __construct(
-        TokenStorageInterface $securityStorage)
-    {
-        $this->securityStorage = $securityStorage;
+        TokenStorageInterface $securityStorage,
+        CheckForPermissionService $checkForPermissionService
+    ) {
+        $this->securityStorage           = $securityStorage;
+        $this->checkForPermissionService = $checkForPermissionService;
     }
 
     /**
@@ -35,7 +42,7 @@ class RequestListener implements EventSubscriberInterface
     {
         return array(
             KernelEvents::REQUEST => array(
-                ['checkForPermission' , 0],
+                ['checkForPermission', 0],
             ),
         );
     }
@@ -43,6 +50,9 @@ class RequestListener implements EventSubscriberInterface
     public function checkForPermission(GetResponseEvent $event): void
     {
         $user = $this->securityStorage->getToken()->getUser();
-        //deny access
+        $this->checkForPermissionService->execute(
+            $user,
+            $event->getRequest()->attributes->get('_route')
+        );
     }
 }

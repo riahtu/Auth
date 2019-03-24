@@ -16,7 +16,7 @@ class GeneralDomainServerError extends DomainException implements DomainExceptio
     public function __construct(array $array)
     {
         $return['resource'] = $array;
-        $return['message'] = 'Something went wrong. Notify someone... or scream for help';
+        $return['error'] = 'Something went wrong. Notify someone... or scream for help';
         parent::__construct(Response::HTTP_INTERNAL_SERVER_ERROR , $return);
     }
 }

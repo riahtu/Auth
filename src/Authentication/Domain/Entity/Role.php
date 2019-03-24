@@ -31,6 +31,10 @@ class Role
      * @var string
      */
     private $name;
+    /**
+     * @var array
+     */
+    private $permissions;
 
     /**
      * Role constructor.
@@ -44,8 +48,35 @@ class Role
     {
         $this->role = $role;
         $this->users = new ArrayCollection();
+        $this->permissions = new ArrayCollection();
         $this->name = $name;
     }
+
+    /**
+     * @return PersistentCollection
+     */
+    public function getPermissions(): PersistentCollection
+    {
+        return $this->permissions;
+    }
+
+    public function addPermission(Permission $permission): Role
+    {
+        $this->permissions[] = $permission;
+        return $this;
+    }
+
+
+    public function hasPermission(string $route)
+    {
+        foreach ($this->getPermissions() as $permission){
+            if($permission->getAction() === $route){
+                return $permission;
+            }
+        }
+        return false;
+    }
+
 
     /**
      * @return mixed

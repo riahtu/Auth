@@ -15,7 +15,7 @@ class UserDoesNotExistException extends DomainException implements DomainExcepti
 {
     public function __construct(array $array)
     {
-        $return['message'] = 'User does not exist';
+        $return['error'] = 'User does not exist';
         $return['resource'] = $array;
         parent::__construct(Response::HTTP_CONFLICT, $return);
     }

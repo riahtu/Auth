@@ -16,7 +16,7 @@ class PermissionDoesNotExistException extends DomainException implements DomainE
     public function __construct(array $array)
     {
         $return['resource'] = $array;
-        $return['message'] = 'Permission does not exist';
+        $return['error'] = 'Permission does not exist';
         parent::__construct(Response::HTTP_CONFLICT , $return);
     }
 }

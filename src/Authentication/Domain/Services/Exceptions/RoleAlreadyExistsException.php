@@ -17,7 +17,7 @@ class RoleAlreadyExistsException extends DomainException implements DomainExcept
     public function __construct(array $array)
     {
         $return['resource'] = $array;
-        $return['message'] = 'Role already exists';
+        $return['error'] = 'Role already exists';
         parent::__construct(Response::HTTP_CONFLICT , $return);
     }
 }

@@ -15,7 +15,7 @@ class TokenTypeNotSupportedException extends DomainException implements DomainEx
 {
     public function __construct(array $array)
     {
-        $return['message'] = 'Requested token type does not exist';
+        $return['error'] = 'Requested token type does not exist';
         $return['resource'] = $array;
         parent::__construct(Response::HTTP_NOT_ACCEPTABLE, $return);
     }

@@ -16,7 +16,7 @@ class CredentialTakenException extends DomainException
     public function __construct(array $array)
     {
         $return['resource'] = $array;
-        $return['message'] = 'Credential taken';
+        $return['error'] = 'Credential taken';
         parent::__construct(Response::HTTP_CONFLICT , $return);
     }
 }
