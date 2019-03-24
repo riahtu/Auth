@@ -31,6 +31,8 @@ class RoleController extends TransactionalRestController
      * @param CreateNewRoleService $service
      * @param Request $request
      *
+     * @IsGranted("ROLE_ADMIN")
+     *
      * @return JsonResponse
      *
      * @Rest\Post("/api/role/new" , name="make_role")
@@ -51,6 +53,8 @@ class RoleController extends TransactionalRestController
     /**
      * @param RemoveRoleService $service
      * @param Request $request
+     *
+     * @IsGranted("ROLE_ADMIN")
      *
      * @return JsonResponse
      *

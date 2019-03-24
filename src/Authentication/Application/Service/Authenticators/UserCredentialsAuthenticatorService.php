@@ -80,49 +80,20 @@ class UserCredentialsAuthenticatorService extends AbstractGuardAuthenticator
      */
     public function supports(Request $request)
     {
-
         $route = $request->attributes->get('_route');
 
         if($route === 'new_user_register'){
             return false;
         }
 
-        if(!$request->headers->has('php-auth-user') || $route != 'create_jwt_token' ){
-            if(!$request->get('username')){
-                return false;
-            }
+        if(!$request->get('username') && !$request->headers->has('php-auth-user')){
+            return false;
         }
 
         return true;
     }
-
-    /**
-     * Get the authentication credentials from the request and return them
-     * as any type (e.g. an associate array).
-     *
-     * Whatever value you return here will be passed to getUser() and checkCredentials()
-     *
-     * For example, for a form login, you might:
-     *
-     *      return array(
-     *          'username' => $request->request->get('_username'),
-     *          'password' => $request->request->get('_password'),
-     *      );
-     *
-     * Or for an API token that's on a header, you might use:
-     *
-     *      return array('api_key' => $request->headers->get('X-API-TOKEN'));
-     *
-     * @param Request $request
-     *
-     * @return mixed Any non-null value
-     *
-     * @throws \UnexpectedValueException If null is returned
-     * @throws \Exception
-     */
     public function getCredentials(Request $request)
     {
-
         if ($request->headers->has('php-auth-user') ){
             return [
                 'client_id'     => $request->headers->get('php-auth-user'),

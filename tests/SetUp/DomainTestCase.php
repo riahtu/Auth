@@ -44,7 +44,7 @@ class DomainTestCase extends WebTestCase
     {
         $client = self::createClient();
         $client->setServerParameters(array(
-            'PHP_AUTH_USER' => UserFixtures::ADMIN_EMAIL,
+            'PHP_AUTH_USER' => UserFixtures::ADMIN_USERNAME,
             'PHP_AUTH_PW' => UserFixtures::ADMIN_PASSWORD
         ));
         return $client;
@@ -60,6 +60,16 @@ class DomainTestCase extends WebTestCase
         $client = self::createClient();
         $client->setServerParameters(array(
             'HTTP_Authorization' => 'Bearer ' . $user->getAccessTokens()->last()->getToken()
+        ));
+        return $client;
+    }
+
+    public function runAsUserWithBasicAuth(): Client
+    {
+        $client = self::createClient();
+        $client->setServerParameters(array(
+            'PHP_AUTH_USER' => UserFixtures::USER_USERNAME,
+            'PHP_AUTH_PW' => UserFixtures::USER_PASSWORD
         ));
         return $client;
     }

@@ -22,8 +22,8 @@ class TokenTest extends DomainTestCase
 
     public function testAuthenticatedUserCanGenerateJwtAccessToken(): void
     {
-        $client = $this->runAsUser();
-        $client->request('POST', '/api/login', array(
+        $client = $this->runAsUserWithBasicAuth();
+        $client->request('POST', '/api/token/create', array(
             'type'=> 'JWT',
             'intendedFor' => 'test',
             'subject' => 'test',
@@ -33,8 +33,8 @@ class TokenTest extends DomainTestCase
     }
     public function testAuthenticatedUserCanGenerateBasicAccessToken(): void
     {
-        $client = $this->runAsUser();
-        $client->request('POST', '/api/login', array(
+        $client = $this->runAsUserWithBasicAuth();
+        $client->request('POST', '/api/token/create', array(
             'type'=> 'BASIC',
             'intendedFor' => 'test',
             'subject' => 'test',
@@ -46,7 +46,7 @@ class TokenTest extends DomainTestCase
     public function testUnAuthenticatedUserCanNotGenerateAccessToken(): void
     {
         $client = self::createClient();
-        $client->request('POST', '/api/login', array(
+        $client->request('POST', '/api/token/create', array(
             'type'=> 'JWT',
             'intendedFor' => 'test',
             'subject' => 'test',

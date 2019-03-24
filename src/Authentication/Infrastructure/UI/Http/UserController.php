@@ -55,7 +55,7 @@ class UserController extends TransactionalRestController
      * @IsGranted("ROLE_USER")
      *
      * @return JsonResponse
-     * @Rest\Post("/api/login" , name="create_jwt_token")
+     * @Rest\Post("/api/token/create" , name="create_jwt_token")
      */
     public function createJwtToken(CreateTokenService $service, Request $request): JsonResponse
     {
@@ -79,6 +79,8 @@ class UserController extends TransactionalRestController
      * @param AssignRoleToUserService $service
      * @param Request $request
      *
+     * @IsGranted("ROLE_ADMIN")
+     *
      * @return JsonResponse
      *
      * @Rest\Put("/api/user-assign-role" , name="assign_role_to_user")
@@ -99,6 +101,8 @@ class UserController extends TransactionalRestController
     /**
      * @param RemoveRoleFromUserService $service
      * @param Request $request
+     *
+     * @IsGranted("ROLE_ADMIN")
      *
      * @return JsonResponse
      *
