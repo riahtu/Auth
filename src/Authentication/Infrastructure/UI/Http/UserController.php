@@ -11,8 +11,6 @@ namespace Authentication\Infrastructure\UI\Http;
 
 use Authentication\Application\Service\Token\CreateTokenRequest;
 use Authentication\Application\Service\Token\CreateTokenService;
-use Authentication\Domain\Entity\Role;
-use Authentication\Domain\Entity\User;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Authentication\Application\Service\User\AssignRoleToUserRequest;
 use Authentication\Application\Service\User\AssignRoleToUserService;
@@ -54,6 +52,7 @@ class UserController extends TransactionalRestController
      *
      * @param Request $request
      *
+     * @IsGranted("ROLE_USER")
      *
      * @return JsonResponse
      * @Rest\Post("/api/login" , name="create_jwt_token")
@@ -66,7 +65,7 @@ class UserController extends TransactionalRestController
             $request->get('type'),
             $request->get('intendedFor'),
             $request->get('subject'),
-            $request->get('requestData')
+            json_decode($request->get('requestData'))
         );
 
         $response['token'] = $this->runAsTransaction(
