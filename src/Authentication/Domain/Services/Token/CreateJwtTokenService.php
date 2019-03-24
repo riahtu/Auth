@@ -38,7 +38,7 @@ class CreateJwtTokenService
         array $requestedData,
         $audience,
         $subject
-    ): Token
+    ): string
     {
         $builder = $this->constructBasicTokenFromRequest($user, $audience, $subject);
 
@@ -55,7 +55,7 @@ class CreateJwtTokenService
 
         $this->verifyToken($builder->getToken(), $signer, $keychain->getPublicKey('file:///application/config/jwt/public.pem'));
 
-        return $builder->getToken();
+        return $builder->getToken()->__toString();
     }
 
     private function constructBasicTokenFromRequest(User $user, $audience, $subject): Builder

@@ -82,6 +82,11 @@ class UserCredentialsAuthenticatorService extends AbstractGuardAuthenticator
     {
 
         $route = $request->attributes->get('_route');
+
+        if($route === 'new_user_register'){
+            return false;
+        }
+
         if(!$request->headers->has('php-auth-user') || $route != 'create_jwt_token' ){
             if(!$request->get('username')){
                 return false;

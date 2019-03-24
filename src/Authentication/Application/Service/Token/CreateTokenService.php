@@ -68,7 +68,7 @@ class CreateTokenService implements TransactionalServiceInterface
             )
         );
 
-        return $token->__toString();
+        return $token;
     }
 
     private function isPossible($request): void
