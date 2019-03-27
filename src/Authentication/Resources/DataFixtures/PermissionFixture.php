@@ -29,7 +29,8 @@ class PermissionFixture extends Fixture
             'assign_role_to_user' => 'assign_role_to_user',
             'remove_role_from_user' => 'remove_role_from_user',
             'make_role' => 'make_role',
-            'delete_role' => 'delete_role'
+            'delete_role' => 'delete_role',
+            'new_client_register' => 'new_client_register'
         );
 
         foreach ($arrayOfPermissions as $key => $value) {
