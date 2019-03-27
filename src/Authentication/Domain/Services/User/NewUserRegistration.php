@@ -45,7 +45,6 @@ class NewUserRegistration
      * @param string $username
      * @param string $password
      * @param Role $role
-     * @param bool $signed
      *
      * @return User
      * @throws \Doctrine\ORM\ORMException

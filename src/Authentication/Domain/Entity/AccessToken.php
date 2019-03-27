@@ -17,6 +17,8 @@ class AccessToken
      */
     private $user;
 
+    private $client;
+
     private $token;
     /**
      * @var string
@@ -47,12 +49,19 @@ class AccessToken
         string $audience,
         string $token = null,
         bool $active = true
-    )
-    {
-        $this->token = $token ?: bin2hex(random_bytes(60));
-        $this->type = $type;
+    ) {
+        $this->token    = $token ?: bin2hex(random_bytes(60));
+        $this->type     = $type;
         $this->audience = $audience;
-        $this->active = $active;
+        $this->active   = $active;
+    }
+
+
+    public function setClient(Client $client): AccessToken
+    {
+        $this->client = $client;
+
+        return $this;
     }
 
     /**
@@ -63,8 +72,10 @@ class AccessToken
     public function setUser(User $user): AccessToken
     {
         $this->user = $user;
+
         return $this;
     }
+
     /**
      * @return User
      */

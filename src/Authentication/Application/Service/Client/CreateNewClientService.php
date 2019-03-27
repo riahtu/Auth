@@ -18,10 +18,14 @@ class CreateNewClientService implements TransactionalServiceInterface
     {
         $this->clientRepository = $em->getRepository(Client::class);
     }
+
     /**
      * @param CreateNewClientRequest $request
+     *
+     * @return array
+     * @throws \Exception
      */
-    public function execute($request = null)
+    public function execute($request = null): array
     {
 
         if(!$request->getName() && !$request->getIp()){
@@ -34,5 +38,7 @@ class CreateNewClientService implements TransactionalServiceInterface
         );
 
         $this->clientRepository->add($client);
+
+        return array('token' => $client->getLastActiveAccessToken()->getToken());
     }
 }

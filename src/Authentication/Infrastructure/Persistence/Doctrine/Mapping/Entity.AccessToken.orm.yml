@@ -11,6 +11,9 @@ Authentication\Domain\Entity\AccessToken:
     user:
       targetEntity: Authentication\Domain\Entity\User
       inversedBy: accessTokens
+    client:
+      targetEntity: Authentication\Domain\Entity\Client
+      inversedBy: accessTokens
 
   fields:
     token:

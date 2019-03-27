@@ -7,6 +7,12 @@ Authentication\Domain\Entity\Client:
       type: integer
       generator: { strategy: AUTO }
 
+  oneToMany:
+    accessTokens:
+      targetEntity: Authentication\Domain\Entity\AccessToken
+      mappedBy: client
+      cascade: ["persist", "merge", "remove"]
+
   fields:
     name:
       type: string
