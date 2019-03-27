@@ -1,0 +1,8 @@
+Authentication\Domain\Entity\Client:
+  type: entity
+  table: Clients
+  repositoryClass: Authentication\Infrastructure\Repositories\ClientRepository
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }

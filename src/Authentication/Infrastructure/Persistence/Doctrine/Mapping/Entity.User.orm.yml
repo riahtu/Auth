@@ -27,6 +27,10 @@ Authentication\Domain\Entity\User:
       targetEntity: Authentication\Domain\Entity\AccessToken
       mappedBy: user
       cascade: ["persist", "merge", "remove"]
+    settings:
+      targetEntity: Authentication\Domain\Entity\Values\Setting
+      mappedBy: user
+      cascade: ["persist", "merge", "remove"]
 
   manyToMany:
     roles:
