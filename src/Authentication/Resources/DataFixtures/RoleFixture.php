@@ -47,7 +47,8 @@ class RoleFixture extends Fixture implements DependentFixtureInterface
                 'name'       => 'Anon',
                 'permission' => array(
                     'new_user_register',
-                    'new_client_register'
+                    'new_client_register',
+                    'get_user_settings'
                 ),
             ),
         );

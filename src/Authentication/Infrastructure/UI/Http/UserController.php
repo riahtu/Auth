@@ -120,4 +120,12 @@ class UserController extends TransactionalRestController
 
         return new JsonResponse($response, Response::HTTP_OK);
     }
+    /**
+     *
+     * @Rest\Get("/api/user/settings" , name="get_user_settings")
+     */
+    public function getUserSettings()
+    {
+        return new JsonResponse(array('this') , JsonResponse::HTTP_OK);
+    }
 }
