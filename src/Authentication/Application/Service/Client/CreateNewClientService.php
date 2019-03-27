@@ -24,9 +24,9 @@ class CreateNewClientService implements TransactionalServiceInterface
     public function execute($request = null)
     {
 
-        /* if(!$request->getName() && !$request->getIp()){
+        if(!$request->getName() && !$request->getIp()){
             throw new NotAllCredentialsSetException(array('id' => $request->getName() , 'ip' => $request->getIp()));
-        } */
+        }
 
         $client = new Client(
             $request->getName(),

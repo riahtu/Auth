@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37f5d6a8-f200-4dcd-995f-8df5bf80e93d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e442402e-d953-4388-968b-c168a82ac257.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Domain/Entity/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Client.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Client.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,17 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/ClientController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state relative-caret-position="110">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -86,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="376">
+              <caret line="23" column="44" lean-forward="true" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -109,7 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
         <option value="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -160,6 +145,7 @@
         <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Client.orm.yml" />
         <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/ClientController.php" />
         <option value="$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientRequest.php" />
+        <option value="$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientService.php" />
       </list>
     </option>
   </component>
@@ -382,12 +368,12 @@
       <workItem from="1553339421209" duration="5636000" />
       <workItem from="1553411185143" duration="3362000" />
       <workItem from="1553422731957" duration="6866000" />
-      <workItem from="1553683706926" duration="884000" />
+      <workItem from="1553683706926" duration="930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54133000" />
+    <option name="totallyTimeSpent" value="54179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -400,14 +386,14 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32998884" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" visible="true" weight="0.39910814" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.39910814" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32998884" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.27201784" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.27201784" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.39910814" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.5295429" />
       <window_info anchor="bottom" id="SQL Generator" order="13" weight="0.32998884" />
@@ -796,24 +782,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientService.php">
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="305">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/ClientController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        <state relative-caret-position="110">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientRequest.php">
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        <state relative-caret-position="376">
+          <caret line="23" column="44" lean-forward="true" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
         </state>
       </provider>
     </entry>
