@@ -124,8 +124,9 @@ class UserController extends TransactionalRestController
      *
      * @Rest\Get("/api/user/settings" , name="get_user_settings")
      */
-    public function getUserSettings()
+    public function getUserSettings(Request $request): JsonResponse
     {
+        $user = $this->getUser();
         return new JsonResponse(array('this') , JsonResponse::HTTP_OK);
     }
 }
