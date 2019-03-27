@@ -31,7 +31,7 @@ class UserController extends TransactionalRestController
      *
      * @return JsonResponse
      *
-     * @Rest\Post("/api/register" , name="new_user_register")
+     * @Rest\Post("/api/register/user" , name="new_user_register")
      */
     public function registerUser(CreateUserService $service, Request $request): JsonResponse
     {
