@@ -6,3 +6,10 @@ Authentication\Domain\Entity\Client:
     id:
       type: integer
       generator: { strategy: AUTO }
+
+  fields:
+    name:
+      type: string
+
+    ip:
+      type: string

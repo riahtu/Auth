@@ -14,6 +14,10 @@ class ClientController extends TransactionalRestController
 {
     /**
      * @Rest\Post("/api/register/client" , name="new_client_register")
+     * @param CreateNewClientService $service
+     * @param Request $request
+     *
+     * @return JsonResponse
      */
     public function registerUser(CreateNewClientService $service, Request $request): JsonResponse
     {

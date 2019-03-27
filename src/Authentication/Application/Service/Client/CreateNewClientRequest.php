@@ -11,8 +11,8 @@ class CreateNewClientRequest
         $ip
     )
     {
-        $this->name;
-        $this->ip;
+        $this->name = $name;
+        $this->ip = $name;
     }
 
     public function getName()
