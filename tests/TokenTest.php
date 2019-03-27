@@ -10,6 +10,7 @@ namespace App\Tests;
 
 
 use App\Tests\SetUp\DomainTestCase;
+use Authentication\Resources\DataFixtures\ClientFixture;
 use Symfony\Component\HttpFoundation\Response;
 
 class TokenTest extends DomainTestCase
@@ -25,7 +26,7 @@ class TokenTest extends DomainTestCase
         $client = $this->runAsUserWithBasicAuth();
         $client->request('POST', '/api/token/create', array(
             'type'=> 'JWT',
-            'intendedFor' => 'test',
+            'intendedFor' => $this->fixtures->getReference(ClientFixture::CLIENT_NAME)->getToken(),
             'subject' => 'test',
             'requestData' => json_encode(['USER_ROLE' , 'USER_USERNAME'])
         ));
@@ -36,7 +37,7 @@ class TokenTest extends DomainTestCase
         $client = $this->runAsUserWithBasicAuth();
         $client->request('POST', '/api/token/create', array(
             'type'=> 'BASIC',
-            'intendedFor' => 'test',
+            'intendedFor' => $this->fixtures->getReference(ClientFixture::CLIENT_NAME)->getToken(),
             'subject' => 'test',
             'requestData' => json_encode(['USER_ROLE'])
         ));

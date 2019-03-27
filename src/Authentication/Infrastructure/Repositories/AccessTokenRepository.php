@@ -13,5 +13,8 @@ use Doctrine\ORM\EntityRepository;
 
 class AccessTokenRepository extends EntityRepository
 {
-
+    public function findByToken($token)
+    {
+        return $this->findBy(['token' => $token]);
+    }
 }

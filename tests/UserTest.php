@@ -9,7 +9,7 @@
 namespace App\Tests;
 
 use App\Tests\SetUp\DomainTestCase;
-use Authentication\Resources\DataFixtures\UserFixtures;
+use Authentication\Resources\DataFixtures\UserFixture;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserTest extends DomainTestCase
@@ -40,12 +40,12 @@ class UserTest extends DomainTestCase
         $client->request('POST', '/api/register/user' , array(
             'email' => 'test@test.com',
             'password' => 'test',
-            'username' => UserFixtures::USER_USERNAME,
+            'username' => UserFixture::USER_USERNAME,
             'agreementSigned' => 1
         ));
         $this->assertSame(Response::HTTP_CONFLICT, $client->getResponse()->getStatusCode());
         $client->request('POST', '/api/register/user' , array(
-            'email' => UserFixtures::USER_EMAIL,
+            'email' => UserFixture::USER_EMAIL,
             'password' => 'test',
             'username' => 'test',
             'agreementSigned' => 1
