@@ -7,6 +7,7 @@
 /var/
 /vendor/
 /.idea
+/src/Authentication/Resources/Persistence/Doctrine/Migrations
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
