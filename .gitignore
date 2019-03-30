@@ -6,7 +6,7 @@
 /public/bundles/
 /var/
 /vendor/
-/.idea
+/idea/
 /src/Authentication/Resources/Persistence/Doctrine/Migrations
 ###< symfony/framework-bundle ###
 
