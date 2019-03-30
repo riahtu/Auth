@@ -33,10 +33,6 @@ class User implements UserInterface, UserValidationInterface
      * @var PersistentCollection
      */
     private $accessTokens;
-    /**
-     * @var PersistentCollection
-     */
-    private $settings;
 
 
     /**
@@ -58,7 +54,6 @@ class User implements UserInterface, UserValidationInterface
         $this->createdAt = new \DateTime();
         $this->accessTokens = new ArrayCollection();
         $this->roles = new ArrayCollection();
-        $this->settings = new ArrayCollection();
 
         $this->addRole($role);
     }
@@ -229,11 +224,6 @@ class User implements UserInterface, UserValidationInterface
             }
         }
         return false;
-    }
-
-    public function getSettings()
-    {
-        return $this->settings;
     }
 
 }
