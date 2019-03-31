@@ -58,7 +58,7 @@ class RoleController extends TransactionalRestController
      *
      * @return JsonResponse
      *
-     * @Rest\Delete("/api/delete-role" , name="delete_role")
+     * @Rest\Delete("/api/role/delete" , name="delete_role")
      */
     public function removeRole(RemoveRoleService $service, Request $request): JsonResponse
     {

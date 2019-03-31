@@ -24,14 +24,14 @@ class PermissionFixture extends Fixture
     public function load(ObjectManager $manager)
     {
         $arrayOfPermissions = array(
-            'new_user_register' => 'new_user_register',
-            'create_token' => 'create_token',
-            'assign_role_to_user' => 'assign_role_to_user',
-            'remove_role_from_user' => 'remove_role_from_user',
-            'make_role' => 'make_role',
-            'delete_role' => 'delete_role',
-            'new_client_register' => 'new_client_register',
-            'get_user_settings' => 'get_user_settings'
+            'new_user_register' => '/api/register/user',
+            'create_token' => '/api/token/create',
+            'assign_role_to_user' => '/api/user/role/add',
+            'remove_role_from_user' => '/api/user/role/remove',
+            'make_role' => '/api/role/new',
+            'delete_role' => '/api/role/delete',
+            'new_client_register' => '/api/register/client',
+            'get_user_settings' => '/api/user/settings'
         );
 
         foreach ($arrayOfPermissions as $key => $value) {

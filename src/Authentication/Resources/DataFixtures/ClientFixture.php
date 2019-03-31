@@ -27,7 +27,7 @@ class ClientFixture extends Fixture
     {
         $client = new Client(
             self::CLIENT_NAME,
-            self::CLIENT_NAME,
+            self::CLIENT_NAME
         );
 
         $this->setReference(self::CLIENT_NAME, $client->getLastActiveAccessToken());

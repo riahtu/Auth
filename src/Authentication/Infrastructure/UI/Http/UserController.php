@@ -83,7 +83,7 @@ class UserController extends TransactionalRestController
      *
      * @return JsonResponse
      *
-     * @Rest\Put("/api/user-assign-role" , name="assign_role_to_user")
+     * @Rest\Put("/api/user/role/add" , name="assign_role_to_user")
      */
     public function addRoleToUser(AssignRoleToUserService $service, Request $request): JsonResponse
     {
@@ -106,7 +106,7 @@ class UserController extends TransactionalRestController
      *
      * @return JsonResponse
      *
-     * @Rest\Put("/api/user-remove-role" , name="remove_role_from_user")
+     * @Rest\Put("/api/user/role/remove" , name="remove_role_from_user")
      */
     public function removeRoleFromUser(RemoveRoleFromUserService $service, Request $request): JsonResponse
     {
