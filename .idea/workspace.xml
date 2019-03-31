@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37f5d6a8-f200-4dcd-995f-8df5bf80e93d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/017e695c-869f-440f-a450-9860ee76aee5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/017e695c-869f-440f-a450-9860ee76aee5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/1/e1d4bf9b976ac600e410465e95e399275b163827" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/1/e1d4bf9b976ac600e410465e95e399275b163827" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/c/fc8610183184351c2bd4f0875fcc90f690b7fa1d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/c/fc8610183184351c2bd4f0875fcc90f690b7fa1d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Domain/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Entity/Values/Setting.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.User.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.User.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Values.Setting.orm.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Entity/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Domain/Entity/Permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Permission.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Permission.orm.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/PermissionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/PermissionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,14 +50,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="43" column="11" lean-forward="true" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+            <state relative-caret-position="406">
+              <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
               <folding>
-                <element signature="e#146#192#0#PHP" expanded="true" />
+                <element signature="e#146#229#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+              <folding>
+                <element signature="e#150#194#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Permission.orm.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Authentication/Domain/Entity/Permission.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -75,6 +98,8 @@
     <findStrings>
       <find>isG</find>
       <find>sign</find>
+      <find>name</find>
+      <find>nam</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -84,11 +109,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/UserFixture.php" />
-        <option value="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/ClientFixture.php" />
-        <option value="$PROJECT_DIR$/tests/TokenTest.php" />
-        <option value="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/PermissionFixture.php" />
-        <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Http/UserController.php" />
         <option value="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/RoleFixture.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -134,7 +154,12 @@
         <option value="$PROJECT_DIR$/../rest/src/Settings/Domain/Services/EventListeners/RequestListener.php" />
         <option value="$PROJECT_DIR$/../rest/src/Settings/Settings/Infrastructure/UI/Http/TransactionalRestController.php" />
         <option value="$PROJECT_DIR$/../rest/src/Settings/Settings/Infrastructure/UI/Http/SettingsController.php" />
+        <option value="$PROJECT_DIR$/src/Authentication/Domain/Entity/Permission.php" />
+        <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Permission.orm.yml" />
+        <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/PermissionRepository.php" />
+        <option value="$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionRequest.php" />
         <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php" />
+        <option value="$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionService.php" />
       </list>
     </option>
   </component>
@@ -232,7 +257,9 @@
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -285,7 +312,47 @@
             <path>
               <item name="Auth" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Auth" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Authentication" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Auth" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Authentication" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Infrastructure" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Auth" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Authentication" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Infrastructure" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Persistence" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Auth" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Authentication" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Infrastructure" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Persistence" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Doctrine" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Auth" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Authentication" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Infrastructure" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Persistence" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Doctrine" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Mapping" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -300,6 +367,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../rest" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
   </component>
   <component name="RecentsManager">
@@ -367,18 +435,19 @@
       <workItem from="1553951020219" duration="35000" />
       <workItem from="1553957428416" duration="800000" />
       <workItem from="1553968586217" duration="571000" />
-      <workItem from="1553969209546" duration="1661000" />
+      <workItem from="1553969209546" duration="1696000" />
+      <workItem from="1554017011673" duration="4534000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78847000" />
+    <option name="totallyTimeSpent" value="83416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23880596" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24147122" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="DB Browser" order="3" />
@@ -392,7 +461,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32998884" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" visible="true" weight="0.27201784" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" visible="true" weight="0.24860647" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.27201784" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.5295429" />
       <window_info anchor="bottom" id="SQL Generator" order="13" weight="0.32998884" />
@@ -401,7 +470,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.30383795" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.31982943" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21748401" />
@@ -460,31 +529,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Domain/Services/Permission/CheckForPermissionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Domain/Services/Token/CreateJwtTokenService.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Domain/Services/User/NewUserRegistration.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Application/DataTransformers/User/AllUserInfoDataTransformer.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Application/Service/Client/CreateNewClientRequest.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Application/Service/Role/CreateNewRoleRequest.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Application/Service/Token/CreateTokenRequest.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Application/Service/User/AssignRoleToUserRequest.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Infrastructure/Repositories/AccessTokenRepository.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Infrastructure/Repositories/UserRepository.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Infrastructure/Repositories/ClientRepository.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Domain/Entity/AccessToken.php" />
-    <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Domain/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../rest/src/Settings/Infrastructure/Repositories/RoleRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -714,26 +758,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/routing/RouteCollection.php">
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Resources/Persistence/Doctrine/Migrations/Version20190331075900.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
+        <state relative-caret-position="-345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Resources/Persistence/Doctrine/Migrations/Version20190330123634.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-401" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Resources/Persistence/Doctrine/Migrations/Version20190327172406.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-953" />
+      </provider>
+    </entry>
+    <entry file="das://017e695c-869f-440f-a450-9860ee76aee5/schema/acl/table/migration_versions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Domain/Entity/Permission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/blackbit/transactional/src/Transactional.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Role.orm.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/routing/RouterInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        <state relative-caret-position="385">
+          <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/routing/Route.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="323" column="40" selection-start-line="323" selection-start-column="37" selection-end-line="323" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/routing/RouteCollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-230">
+          <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Permission.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/PermissionRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding>
+            <element signature="e#147#191#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://017e695c-869f-440f-a450-9860ee76aee5/schema/acl/table/Permissions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="43" column="11" lean-forward="true" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+        <state relative-caret-position="406">
+          <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
           <folding>
-            <element signature="e#146#192#0#PHP" expanded="true" />
+            <element signature="e#146#229#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+          <folding>
+            <element signature="e#150#194#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

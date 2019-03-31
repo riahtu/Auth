@@ -11,7 +11,7 @@ Authentication\Domain\Entity\Permission:
   fields:
     name:
       type: string
-    action:
+    route:
       type: string
 
   manyToMany:

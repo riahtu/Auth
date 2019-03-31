@@ -122,3 +122,5 @@ l
 <src/Authentication/Domain/Entity/UserValidationInterface.php,0\a\0a21919701460ed34b24d3f1a354e91412884c20
 n
 >src/Authentication/Infrastructure/UI/Http/ClientController.php,2\8\28170a6172262967e452a7e96265dbea5b4911da
+u
+Esrc/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php,8\7\876c49adbf5ae323e58b77f31ed226e751cf7095

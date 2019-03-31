@@ -26,7 +26,7 @@ class Permission
     /**
      * @var string
      */
-    private $action;
+    private $route;
 
     public function __construct(
         string $name,
@@ -35,7 +35,7 @@ class Permission
     {
         $this->roles = new ArrayCollection();
         $this->name = $name;
-        $this->action = $action;
+        $this->route = $action;
     }
 
     /**
@@ -57,9 +57,9 @@ class Permission
     /**
      * @return string
      */
-    public function getAction(): string
+    public function getRoute(): string
     {
-        return $this->action;
+        return $this->route;
     }
 
     public function addRole(Role $role): Permission
