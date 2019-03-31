@@ -17,15 +17,15 @@ class ImportRoutesForPermissionRequest
      * @var RouteCollection
      */
     private $routes;
-    private $cleanse;
+    private $clean;
 
     public function __construct(
         RouteCollection $routes,
-        $cleanse
+        $clean
     )
     {
         $this->routes = $routes;
-        $this->cleanse = $cleanse;
+        $this->clean = $clean;
     }
 
     /**
@@ -39,8 +39,8 @@ class ImportRoutesForPermissionRequest
     /**
      * @return mixed
      */
-    public function getCleanse()
+    public function getClean()
     {
-        return $this->cleanse;
+        return $this->clean;
     }
 }

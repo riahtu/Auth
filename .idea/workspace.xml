@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37f5d6a8-f200-4dcd-995f-8df5bf80e93d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/017e695c-869f-440f-a450-9860ee76aee5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/017e695c-869f-440f-a450-9860ee76aee5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/7/27d202ce17cc1830c62d2841cb5ec13198328a82" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/7/27d202ce17cc1830c62d2841cb5ec13198328a82" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/PermissionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/PermissionRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/PermissionFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/PermissionFixture.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,11 +48,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+            <state relative-caret-position="199">
+              <caret line="64" column="11" lean-forward="true" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
               <folding>
                 <element signature="e#146#229#0#PHP" expanded="true" />
               </folding>
@@ -68,17 +63,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionRequest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+            <state relative-caret-position="337">
+              <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+            <state relative-caret-position="253">
+              <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
               <folding>
                 <element signature="e#149#193#0#PHP" expanded="true" />
               </folding>
@@ -95,6 +90,9 @@
       <find>name</find>
       <find>nam</find>
     </findStrings>
+    <replaceStrings>
+      <replace>clean</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -150,10 +148,10 @@
         <option value="$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRouteForPermissionService.php" />
         <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/PermissionRepository.php" />
         <option value="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/PermissionFixture.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionRequest.php" />
-        <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php" />
         <option value="$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionService.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php" />
       </list>
     </option>
   </component>
@@ -412,12 +410,12 @@
       <workItem from="1553968586217" duration="571000" />
       <workItem from="1553969209546" duration="1696000" />
       <workItem from="1554017011673" duration="4661000" />
-      <workItem from="1554058872263" duration="4125000" />
+      <workItem from="1554058872263" duration="4660000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87668000" />
+    <option name="totallyTimeSpent" value="88203000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -816,13 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://017e695c-869f-440f-a450-9860ee76aee5/schema/acl/table/Permissions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://017e695c-869f-440f-a450-9860ee76aee5/schema/acl/table/role_permission">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -839,34 +830,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/console/Command/Command.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="371" column="20" selection-start-line="371" selection-start-column="20" selection-end-line="371" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-          <folding>
-            <element signature="e#146#229#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="212">
+          <caret line="391" column="20" selection-start-line="391" selection-start-column="20" selection-end-line="391" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        <state relative-caret-position="337">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://017e695c-869f-440f-a450-9860ee76aee5/schema/acl/table/Permissions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Permission/ImportRoutesForPermissionService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="253">
+          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
           <folding>
             <element signature="e#149#193#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="64" column="11" lean-forward="true" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
+          <folding>
+            <element signature="e#146#229#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

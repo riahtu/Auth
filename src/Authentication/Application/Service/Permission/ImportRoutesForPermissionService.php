@@ -44,7 +44,7 @@ class ImportRoutesForPermissionService implements TransactionalServiceInterface
     {
         $returnArray = array();
 
-        if(!$request->getCleanse() || $request->getCleanse() == '1'){
+        if($request->getClean()){
             $removedRoutes = $this->removeAllRedundantRoutes($request->getRoutes());
             $returnArray = array_merge($returnArray, $removedRoutes);
         }

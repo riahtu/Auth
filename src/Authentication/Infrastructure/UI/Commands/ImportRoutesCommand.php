@@ -17,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\RouterInterface;
@@ -56,7 +57,7 @@ class ImportRoutesCommand extends Command
     {
         $this
             ->setDescription('Import all defined routes!')
-            ->addArgument('cleanse' , InputArgument::OPTIONAL, 'Remove routes in DB that are no longer used in any controller');
+            ->addOption('clean' , null , InputOption::VALUE_NONE , 'Remove routes in DB that are no longer used in any controller');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -71,7 +72,7 @@ class ImportRoutesCommand extends Command
             ->executeTransaction(
                 new ImportRoutesForPermissionRequest(
                     $routeCollection,
-                    $input->getArgument('cleanse')
+                    $input->getOption('clean')
                 )
             );
         foreach ($resultMessage as $msg){
