@@ -9,33 +9,38 @@
 namespace Authentication\Application\Service\Permission;
 
 
+use Symfony\Component\Routing\RouteCollection;
+
 class ImportRoutesForPermissionRequest
 {
-    private $name;
-    private $route;
+    /**
+     * @var RouteCollection
+     */
+    private $routes;
+    private $cleanse;
 
     public function __construct(
-        $name,
-        $route
+        RouteCollection $routes,
+        $cleanse
     )
     {
-        $this->name = $name;
-        $this->route = $route;
+        $this->routes = $routes;
+        $this->cleanse = $cleanse;
+    }
+
+    /**
+     * @return RouteCollection
+     */
+    public function getRoutes(): RouteCollection
+    {
+        return $this->routes;
     }
 
     /**
      * @return mixed
      */
-    public function getRoute()
+    public function getCleanse()
     {
-        return $this->route;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
+        return $this->cleanse;
     }
 }

@@ -8,9 +8,9 @@
 
 namespace Authentication\Application\Service\Permission;
 
-
 use Authentication\Domain\Entity\Permission;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Routing\RouteCollection;
 use Transactional\Interfaces\TransactionalServiceInterface;
 
 class ImportRoutesForPermissionService implements TransactionalServiceInterface
@@ -19,29 +19,78 @@ class ImportRoutesForPermissionService implements TransactionalServiceInterface
      * @var EntityManagerInterface
      */
     private $em;
+    /**
+     * @var ImportRouteForPermissionService
+     */
+    private $importRouteService;
 
-    public function __construct(EntityManagerInterface $em)
-    {
-        $this->em = $em;
+    private $permissionRepository;
+
+    public function __construct(
+        EntityManagerInterface $em,
+        ImportRouteForPermissionService $importRouteService
+    ) {
+        $this->em                 = $em;
+        $this->importRouteService = $importRouteService;
+        $this->permissionRepository = $this->em->getRepository(Permission::class);
     }
 
     /**
      * @param ImportRoutesForPermissionRequest $request
      *
-     * @return string
+     * @return array
      */
-    public function execute($request = null): string
+    public function execute($request = null): array
     {
-        $permissionRepository = $this->em->getRepository(Permission::class);
-        $permission = $permissionRepository->findByName($request->getName());
-        if(!$permission){
-            $permission = new Permission(
-                $request->getName(),
-                $request->getRoute()
-            );
-            $permissionRepository->add($permission);
-            return 'Route ' . $request->getName() .' -> ' . $request->getRoute() . ' has been imported';
+        $returnArray = array();
+
+        if(!$request->getCleanse() || $request->getCleanse() == '1'){
+            $removedRoutes = $this->removeAllRedundantRoutes($request->getRoutes());
+            $returnArray = array_merge($returnArray, $removedRoutes);
         }
-        return 'Route ' . $request->getName() .' -> ' . $request->getRoute() . ' already exists';
+
+        $importedRoutes = $this->importRoutes($request->getRoutes());
+        $returnArray = array_merge($returnArray, $importedRoutes);
+
+        return $returnArray;
+    }
+
+    private function getRouteArray(RouteCollection $routeCollection): array
+    {
+        $routeArray = array();
+        foreach ($routeCollection as $route) {
+            $routeArray[] = $route->getPath();
+        }
+        return $routeArray;
+    }
+
+    private function removeAllRedundantRoutes(RouteCollection $routes): array
+    {
+        $permissions = $this->permissionRepository->findAll();
+        $routeArray = $this->getRouteArray($routes);
+        $returnMessage = array();
+        $returnMessage[] = '-------------- Removed Routes --------------';
+        foreach ($permissions as $permission) {
+            if ( ! in_array($permission->getRoute(), $routeArray)) {
+                $this->permissionRepository->remove($permission);
+                $returnMessage[] = $permission->getRoute();
+            }
+        }
+        return $returnMessage;
+    }
+
+    private function importRoutes(RouteCollection $routes): array
+    {
+        $returnMessage = array();
+        $returnMessage[] = '-------------- Imported Routes --------------';
+        foreach ($routes->all() as $name => $route) {
+            $resultMsg[] = $this->importRouteService->execute(
+                new ImportRouteForPermissionRequest(
+                    $name,
+                    $route->getPath()
+                )
+            );
+        }
+        return $returnMessage;
     }
 }

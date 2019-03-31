@@ -15,6 +15,7 @@ use Authentication\Domain\Entity\Permission;
 use Authentication\Domain\Entity\Role;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Routing\RouteCollection;
@@ -49,37 +50,32 @@ class ImportRoutesCommand extends Command
         $this->importService = $importService;
     }
 
-    protected static $defaultName = 'firewall:import:routs';
+    protected static $defaultName = 'security:import:routes';
 
     protected function configure()
     {
         $this
-            ->setDescription('Import all defined routes!');
+            ->setDescription('Import all defined routes!')
+            ->addArgument('cleanse' , InputArgument::OPTIONAL, 'Remove routes in DB that are no longer used in any controller');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
-
-        $permissionRepository = $this->em->getRepository(Permission::class);
-        $roleRepository       = $this->em->getRepository(Role::class);
-
-
         /**
          * @var RouteCollection $routeCollection
          */
         $routeCollection = $this->router->getRouteCollection();
-        foreach ($routeCollection->all() as $name => $route) {
-            $transaction = $this->createTransaction($this->em);
-            $resultMessage = $transaction
-                ->loadService($this->importService)
-                ->executeTransaction(
-                    new ImportRoutesForPermissionRequest(
-                        $name,
-                        $route->getPath()
-                    )
-                );
-            $output->writeln($resultMessage);
+        $transaction     = $this->createTransaction($this->em);
+        $resultMessage   = $transaction
+            ->loadService($this->importService)
+            ->executeTransaction(
+                new ImportRoutesForPermissionRequest(
+                    $routeCollection,
+                    $input->getArgument('cleanse')
+                )
+            );
+        foreach ($resultMessage as $msg){
+            $output->writeln($msg);
         }
     }
 }

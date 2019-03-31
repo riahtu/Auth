@@ -28,4 +28,8 @@ class PermissionRepository extends EntityRepository
     {
         $this->getEntityManager()->persist($permission);
     }
+    public function remove(Permission $permission)
+    {
+        $this->getEntityManager()->remove($permission);
+    }
 }

@@ -124,3 +124,11 @@ n
 >src/Authentication/Infrastructure/UI/Http/ClientController.php,2\8\28170a6172262967e452a7e96265dbea5b4911da
 u
 Esrc/Authentication/Infrastructure/UI/Commands/ImportRoutesCommand.php,8\7\876c49adbf5ae323e58b77f31ed226e751cf7095
+†
+Vsrc/Authentication/Resources/Persistence/Doctrine/Migrations/Version20190330123634.php,9\c\9cb1db79cdb5c83023fc7c55996169b6385663f3
+†
+Vsrc/Authentication/Resources/Persistence/Doctrine/Migrations/Version20190331075900.php,9\5\95d237c4c7467b141bd91ff6e5c4803ad1c8ea5c
+†
+Vsrc/Authentication/Application/Service/Permission/ImportRoutesForPermissionRequest.php,e\8\e82a598852e1e57072d81a89fbc7029054b27275
+†
+Vsrc/Authentication/Application/Service/Permission/ImportRoutesForPermissionService.php,e\c\ec53628caf16c049c6ae35d1d72bd1949dc8db92
