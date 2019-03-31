@@ -50,9 +50,8 @@ class ImportRoutesForPermissionService implements TransactionalServiceInterface
         }
 
         $importedRoutes = $this->importRoutes($request->getRoutes());
-        $returnArray = array_merge($returnArray, $importedRoutes);
 
-        return $returnArray;
+        return array_merge($returnArray, $importedRoutes);
     }
 
     private function getRouteArray(RouteCollection $routeCollection): array

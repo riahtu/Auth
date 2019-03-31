@@ -11,11 +11,8 @@ namespace Authentication\Infrastructure\UI\Commands;
 
 use Authentication\Application\Service\Permission\ImportRoutesForPermissionRequest;
 use Authentication\Application\Service\Permission\ImportRoutesForPermissionService;
-use Authentication\Domain\Entity\Permission;
-use Authentication\Domain\Entity\Role;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
