@@ -8,24 +8,28 @@
 
 namespace Authentication\Application\Service\Token;
 
-
 use Authentication\Domain\Entity\User\AccessToken;
 use Authentication\Domain\Entity\User\User;
 use Authentication\Domain\Entity\Values\TokenType;
 use Authentication\Domain\Services\Exceptions\InvalidClientToken;
 use Authentication\Domain\Services\Exceptions\TokenTypeNotSupportedException;
 use Authentication\Domain\Services\Token\CreateJwtTokenService;
+use Authentication\Infrastructure\Repositories\Client\AccessTokenRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Transactional\Interfaces\TransactionalServiceInterface;
 
 class CreateTokenService implements TransactionalServiceInterface
 {
 
-    private $tokenRepository;
+    private $userTokenRepository;
     /**
      * @var CreateJwtTokenService
      */
     private $createJwtTokenService;
+    /**
+     * @var AccessTokenRepository
+     */
+    private $clientTokenRepository;
 
     /**
      * CreateTokenService constructor.
@@ -35,7 +39,8 @@ class CreateTokenService implements TransactionalServiceInterface
     public function __construct(CreateJwtTokenService $createJwtTokenService, EntityManagerInterface $em)
     {
         $this->createJwtTokenService = $createJwtTokenService;
-        $this->tokenRepository = $em->getRepository(AccessToken::class);
+        $this->userTokenRepository = $em->getRepository(AccessToken::class);
+        $this->clientTokenRepository = $em->getRepository(\Authentication\Domain\Entity\Client\AccessToken::class);
     }
 
     /**
@@ -52,10 +57,10 @@ class CreateTokenService implements TransactionalServiceInterface
 
         $user = $this->setOlderTokensForThatAudienceToInactive($request->getUser(), $request->getIntendedFor());
 
-//        $clientToken = $this->tokenRepository->findByToken($request->getIntendedFor());
-//        if(!$clientToken){
-//            throw new InvalidClientToken(['token' => $request->getIntendedFor()]);
-//        }
+        $clientToken = $this->clientTokenRepository->findByToken($request->getIntendedFor());
+        if(!$clientToken){
+            throw new InvalidClientToken(['token' => $request->getIntendedFor()]);
+        }
 
         if($request->getType() === TokenType::JWT_TOKEN){
             $token = $this->createJwtTokenService->execute(

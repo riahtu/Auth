@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37f5d6a8-f200-4dcd-995f-8df5bf80e93d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/017e695c-869f-440f-a450-9860ee76aee5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/017e695c-869f-440f-a450-9860ee76aee5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Authenticators/ApiAuthenticatorService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Authenticators/ApiAuthenticatorService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Authenticators/UserCredentialsAuthenticatorService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Authenticators/UserCredentialsAuthenticatorService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Client/CreateNewClientService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/User/AssignRoleToUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/User/AssignRoleToUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/User/RemoveRoleFromUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/User/RemoveRoleFromUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Application/Service/User/UserApplicationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Application/Service/User/UserApplicationService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Entity/AccessToken.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Entity/Client.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Entity/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Domain/Entity/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Entity/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Services/Permission/CheckForPermissionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Domain/Services/Permission/CheckForPermissionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Services/Token/CreateJwtTokenService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Domain/Services/Token/CreateJwtTokenService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Domain/Services/User/NewUserRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Domain/Services/User/NewUserRegistration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.AccessToken.orm.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Client.orm.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Role.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Role.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.User.orm.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/AccessTokenRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/ClientRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/UserRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/ClientFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/ClientFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/UserFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Resources/DataFixtures/UserFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/SetUp/DomainTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/SetUp/DomainTestCase.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,10 +57,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="54" column="10" lean-forward="true" selection-start-line="54" selection-start-column="10" selection-end-line="57" selection-end-column="11" />
+            <state relative-caret-position="322">
+              <caret line="41" column="67" selection-start-line="41" selection-start-column="67" selection-end-line="41" selection-end-column="67" />
               <folding>
-                <element signature="e#145#195#0#PHP" expanded="true" />
+                <element signature="e#144#194#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -463,18 +436,18 @@
       <workItem from="1553969209546" duration="1696000" />
       <workItem from="1554017011673" duration="4661000" />
       <workItem from="1554058872263" duration="5292000" />
-      <workItem from="1554111247620" duration="5783000" />
+      <workItem from="1554111247620" duration="6053000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94983000" />
+    <option name="totallyTimeSpent" value="95253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2260128" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2260128" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="DB Browser" order="3" />
@@ -488,7 +461,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32998884" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" visible="true" weight="0.27201784" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" visible="true" weight="0.27201784" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.27201784" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.5295429" />
       <window_info anchor="bottom" id="SQL Generator" order="13" weight="0.32998884" />
@@ -729,13 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/User/AccessTokenRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/Persistence/Doctrine/Mapping/Entity.Client.AccessToken.orm.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -905,12 +871,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Authentication/Infrastructure/Repositories/User/AccessTokenRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Authentication/Application/Service/Token/CreateTokenService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="54" column="10" lean-forward="true" selection-start-line="54" selection-start-column="10" selection-end-line="57" selection-end-column="11" />
+        <state relative-caret-position="322">
+          <caret line="41" column="67" selection-start-line="41" selection-start-column="67" selection-end-line="41" selection-end-column="67" />
           <folding>
-            <element signature="e#145#195#0#PHP" expanded="true" />
+            <element signature="e#144#194#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
