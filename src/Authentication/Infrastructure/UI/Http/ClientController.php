@@ -25,7 +25,7 @@ class ClientController extends TransactionalRestController
             $service,
             new CreateNewClientRequest(
                 $request->get('name'),
-                $request->get('ip')
+                $request->getClientIp()
             )
             );
         return new JsonResponse($response, Response::HTTP_CREATED);

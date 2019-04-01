@@ -12,7 +12,7 @@ class CreateNewClientRequest
     )
     {
         $this->name = $name;
-        $this->ip = $name;
+        $this->ip = $ip;
     }
 
     public function getName()
