@@ -53,7 +53,7 @@ class Role
     }
 
     /**
-     * @return PersistentCollection
+     * @return Permission[]
      */
     public function getPermissions(): PersistentCollection
     {
@@ -70,7 +70,7 @@ class Role
     public function hasPermission(string $route)
     {
         foreach ($this->getPermissions() as $permission){
-            if($permission->getAction() === $route){
+            if($permission->getRoute() === $route){
                 return $permission;
             }
         }
