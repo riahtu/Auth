@@ -60,7 +60,7 @@ class ApiAuthenticatorService extends AbstractGuardAuthenticator
     public function start(Request $request, AuthenticationException $authException = null)
     {
         $data = array(
-            'message' => 'Auth Failed'
+            'message' => 'Auth Failed',
         );
 
         return new JsonResponse($data, Response::HTTP_UNAUTHORIZED);
@@ -77,7 +77,7 @@ class ApiAuthenticatorService extends AbstractGuardAuthenticator
      */
     public function supports(Request $request)
     {
-        return  $request->headers->has($this->keyword) && (strpos($request->headers->get($this->keyword), 'Bearer ') !== false);
+        return $request->headers->has($this->keyword) && (strpos($request->headers->get($this->keyword), 'Bearer ') !== false);
     }
 
     /**
@@ -106,8 +106,12 @@ class ApiAuthenticatorService extends AbstractGuardAuthenticator
      */
     public function getCredentials(Request $request)
     {
-        [$tokenType , $token] = explode(' ' , $request->headers->get('Authorization'));
-        return ['token' => $token];
+        [$tokenType, $token] = explode(' ', $request->headers->get('Authorization'));
+
+        return [
+            'token'     => $token,
+            'tokenType' => $tokenType,
+        ];
     }
 
     /**
@@ -128,11 +132,12 @@ class ApiAuthenticatorService extends AbstractGuardAuthenticator
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
         $accessToken = $this->em->getRepository(AccessToken::class)
-            ->findOneBy(['token' => $credentials['token']]);
+                                ->findOneBy(['token' => $credentials['token']]);
 
-        if (!$accessToken) {
+        if ( ! $accessToken) {
             return null;
         }
+
         return $accessToken->getUser();
     }
 
@@ -174,7 +179,7 @@ class ApiAuthenticatorService extends AbstractGuardAuthenticator
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
         $data = array(
-            'message' => strtr($exception->getMessageKey(), $exception->getMessageData())
+            'message' => strtr($exception->getMessageKey(), $exception->getMessageData()),
 
         );
 
