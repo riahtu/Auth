@@ -12,9 +12,9 @@ namespace Authentication\Resources\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Authentication\Domain\Entity\AccessToken;
+use Authentication\Domain\Entity\User\AccessToken;
 use Authentication\Domain\Entity\Role;
-use Authentication\Domain\Entity\User;
+use Authentication\Domain\Entity\User\User;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixture extends Fixture implements DependentFixtureInterface

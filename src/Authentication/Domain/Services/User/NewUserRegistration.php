@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Authentication\Domain\Services\Exceptions\CredentialTakenException;
 use Authentication\Infrastructure\Repositories\UserRepository;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Authentication\Domain\Entity\User;
+use Authentication\Domain\Entity\User\User;
 
 class NewUserRegistration
 {

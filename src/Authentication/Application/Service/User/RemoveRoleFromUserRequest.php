@@ -9,7 +9,7 @@
 namespace Authentication\Application\Service\User;
 
 
-use Authentication\Domain\Entity\User;
+use Authentication\Domain\Entity\User\User;
 
 class RemoveRoleFromUserRequest
 {

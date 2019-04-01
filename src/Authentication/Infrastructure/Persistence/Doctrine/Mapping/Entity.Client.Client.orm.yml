@@ -1,7 +1,7 @@
-Authentication\Domain\Entity\Client:
+Authentication\Domain\Entity\Client\Client:
   type: entity
   table: Clients
-  repositoryClass: Authentication\Infrastructure\Repositories\ClientRepository
+  repositoryClass: Authentication\Infrastructure\Repositories\Client\ClientRepository
   id:
     id:
       type: integer
@@ -9,7 +9,7 @@ Authentication\Domain\Entity\Client:
 
   oneToMany:
     accessTokens:
-      targetEntity: Authentication\Domain\Entity\AccessToken
+      targetEntity: Authentication\Domain\Entity\Client\AccessToken
       mappedBy: client
       cascade: ["persist", "merge", "remove"]
 

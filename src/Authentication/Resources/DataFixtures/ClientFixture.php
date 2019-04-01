@@ -9,7 +9,7 @@
 namespace Authentication\Resources\DataFixtures;
 
 
-use Authentication\Domain\Entity\Client;
+use Authentication\Domain\Entity\Client\Client;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 

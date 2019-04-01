@@ -9,9 +9,8 @@
 namespace Authentication\Application\Service\Token;
 
 
-use Authentication\Domain\Entity\AccessToken;
-use Authentication\Domain\Entity\Client;
-use Authentication\Domain\Entity\User;
+use Authentication\Domain\Entity\User\AccessToken;
+use Authentication\Domain\Entity\User\User;
 use Authentication\Domain\Entity\Values\TokenType;
 use Authentication\Domain\Services\Exceptions\InvalidClientToken;
 use Authentication\Domain\Services\Exceptions\TokenTypeNotSupportedException;
@@ -53,10 +52,10 @@ class CreateTokenService implements TransactionalServiceInterface
 
         $user = $this->setOlderTokensForThatAudienceToInactive($request->getUser(), $request->getIntendedFor());
 
-        $clientToken = $this->tokenRepository->findByToken($request->getIntendedFor());
-        if(!$clientToken){
-            throw new InvalidClientToken(['token' => $request->getIntendedFor()]);
-        }
+//        $clientToken = $this->tokenRepository->findByToken($request->getIntendedFor());
+//        if(!$clientToken){
+//            throw new InvalidClientToken(['token' => $request->getIntendedFor()]);
+//        }
 
         if($request->getType() === TokenType::JWT_TOKEN){
             $token = $this->createJwtTokenService->execute(

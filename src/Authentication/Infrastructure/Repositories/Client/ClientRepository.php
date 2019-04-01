@@ -1,9 +1,9 @@
 <?php
-namespace Authentication\Infrastructure\Repositories;
+namespace Authentication\Infrastructure\Repositories\Client;
 
 
 use Doctrine\ORM\EntityRepository;
-use Authentication\Domain\Entity\Client;
+use Authentication\Domain\Entity\Client\Client;
 
 class ClientRepository extends EntityRepository
 {

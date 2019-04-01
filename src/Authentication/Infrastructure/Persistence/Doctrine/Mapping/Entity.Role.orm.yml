@@ -16,7 +16,7 @@ Authentication\Domain\Entity\Role:
       unique: true
   manyToMany:
     users:
-      targetEntity: Authentication\Domain\Entity\User
+      targetEntity: Authentication\Domain\Entity\User\User
       inversedBy: roles
     permissions:
       targetEntity: Authentication\Domain\Entity\Permission

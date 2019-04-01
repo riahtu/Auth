@@ -5,7 +5,7 @@ namespace Authentication\Application\Service\Client;
 use Transactional\Interfaces\TransactionalServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Authentication\Domain\Services\Exceptions\NotAllCredentialsSetException;
-use Authentication\Domain\Entity\Client;
+use Authentication\Domain\Entity\Client\Client;
 
 class CreateNewClientService implements TransactionalServiceInterface
 {

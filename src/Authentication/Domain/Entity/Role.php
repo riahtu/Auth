@@ -9,6 +9,7 @@
 namespace Authentication\Domain\Entity;
 
 
+use Authentication\Domain\Entity\User\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\PersistentCollection;
 

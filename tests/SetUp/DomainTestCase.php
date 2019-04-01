@@ -11,7 +11,7 @@ namespace App\Tests\SetUp;
 
 
 use Liip\FunctionalTestBundle\Test\WebTestCase;
-use Authentication\Domain\Entity\User;
+use Authentication\Domain\Entity\User\User;
 use Authentication\Resources\DataFixtures\UserFixture;
 use Symfony\Bundle\FrameworkBundle\Client;
 

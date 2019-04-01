@@ -9,7 +9,7 @@
 namespace Authentication\Application\Service\Token;
 
 
-use Authentication\Domain\Entity\User;
+use Authentication\Domain\Entity\User\User;
 
 class CreateTokenRequest
 {

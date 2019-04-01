@@ -1,6 +1,6 @@
 <?php
 
-namespace Authentication\Domain\Entity;
+namespace Authentication\Domain\Entity\Client;
 
 use Authentication\Domain\Entity\Values\TokenType;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -32,10 +32,7 @@ class Client
         $this->accessTokens = new ArrayCollection();
 
         $this->addAccessToken(new AccessToken(
-            TokenType::BASIC_TOKEN,
-            'Auth_app',
-            bin2hex(random_bytes(60)),
-            true
+            TokenType::BASIC_TOKEN
         ));
     }
 

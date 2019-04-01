@@ -11,7 +11,7 @@ namespace Authentication\Domain\Services\Permission;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Authentication\Domain\Entity\Role;
-use Authentication\Domain\Entity\User;
+use Authentication\Domain\Entity\User\User;
 use Authentication\Domain\Services\Exceptions\UserDoesntHavePermissionException;
 
 class CheckForPermissionService

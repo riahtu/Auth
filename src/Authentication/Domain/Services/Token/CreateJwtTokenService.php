@@ -8,7 +8,7 @@
 
 namespace Authentication\Domain\Services\Token;
 
-use Authentication\Domain\Entity\User;
+use Authentication\Domain\Entity\User\User;
 use Authentication\Domain\Services\Exceptions\RequestedDataNotValidException;
 use Authentication\Domain\Services\Exceptions\TokenGeneratorErrorException;
 use Lcobucci\JWT\Builder;
