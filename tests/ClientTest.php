@@ -15,10 +15,9 @@ class ClientTest extends DomainTestCase
 
     public function testAnewClientCanRegister(): void
     {
-        $client = self::createClient();
+        $client = $this->runAsAdmin();
         $client->request('POST', '/api/register/client' , array(
-            'name' => 'test',
-            'ip' => 'test'
+            'name' => 'test'
         ));
         $this->assertSame(Response::HTTP_CREATED, $client->getResponse()->getStatusCode());
     }

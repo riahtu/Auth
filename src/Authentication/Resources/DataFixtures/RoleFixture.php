@@ -41,14 +41,14 @@ class RoleFixture extends Fixture implements DependentFixtureInterface
                     'assign_role_to_user',
                     'remove_role_from_user',
                     'make_role',
-                    'delete_role'
+                    'delete_role',
+                    'new_client_register'
                 ),
             ),
             'ROLE_ANON'  => array(
                 'name'       => 'Anon',
                 'permission' => array(
-                    'new_user_register',
-                    'new_client_register'
+                    'new_user_register'
                 ),
             ),
         );
