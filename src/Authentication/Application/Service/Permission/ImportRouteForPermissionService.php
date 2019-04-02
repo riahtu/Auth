@@ -29,20 +29,25 @@ class ImportRouteForPermissionService implements TransactionalServiceInterface
     /**
      * @param ImportRouteForPermissionRequest $request
      *
-     * @return string
+     * @return array
      */
-    public function execute($request = null): string
+    public function execute($request = null): array
     {
-        $permissionRepository = $this->em->getRepository(Permission::class);
-        $permission = $permissionRepository->findByName($request->getName());
-        if(!$permission){
-            $permission = new Permission(
-                $request->getName(),
-                $request->getRoute()
-            );
-            $permissionRepository->add($permission);
-            return 'Route ' . $request->getName() .' -> ' . $request->getRoute() . ' has been imported';
+        $returnMessage = array();
+        foreach ($request->getMethods() as $method){
+            $permissionRepository = $this->em->getRepository(Permission::class);
+            $permission = $permissionRepository->findByName($request->getName());
+            if(!$permission){
+                $permission = new Permission(
+                    $request->getName(),
+                    $request->getRoute(),
+                    $method
+                );
+                $permissionRepository->add($permission);
+                $returnMessage[] = 'Route ' . $request->getName() .' -> ' . $method . ' ' . $request->getRoute() . ' has been imported';
+            }
+            $returnMessage[] = 'Route ' . $request->getName() .' -> ' . $method . ' ' . $request->getRoute() . ' already exists';
         }
-        return 'Route ' . $request->getName() .' -> ' . $request->getRoute() . ' already exists';
+        return $returnMessage;
     }
 }

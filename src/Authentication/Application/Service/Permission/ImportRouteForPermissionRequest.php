@@ -13,14 +13,23 @@ class ImportRouteForPermissionRequest
 
     private $name;
     private $route;
+    private $methods;
 
+    /**
+     * ImportRouteForPermissionRequest constructor.
+     *
+     * @param $name
+     * @param $route
+     * @param $methods
+     */
     public function __construct(
         $name,
-        $route
-    )
-    {
-        $this->name = $name;
-        $this->route = $route;
+        $route,
+        $methods
+    ) {
+        $this->name    = $name;
+        $this->route   = $route;
+        $this->methods = $methods;
     }
 
     /**
@@ -37,5 +46,13 @@ class ImportRouteForPermissionRequest
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMethods()
+    {
+        return $this->methods;
     }
 }

@@ -83,12 +83,14 @@ class ImportRoutesForPermissionService implements TransactionalServiceInterface
         $returnMessage = array();
         $returnMessage[] = '-------------- Imported Routes --------------';
         foreach ($routes->all() as $name => $route) {
-            $returnMessage[] = $this->importRouteService->execute(
+            $returnMessage = array_merge($returnMessage,
+                $this->importRouteService->execute(
                 new ImportRouteForPermissionRequest(
                     $name,
-                    $route->getPath()
+                    $route->getPath(),
+                    $route->getMethods()
                 )
-            );
+            ));
         }
         return $returnMessage;
     }
