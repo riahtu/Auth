@@ -4,9 +4,9 @@
 version: "3.1"
 services:
 
-#    redis:
-#      image: redis:alpine
-#      container_name: auth-redis
+    redis:
+      image: redis:alpine
+      container_name: auth-redis
 
     mysql:
       image: mysql:5.7
