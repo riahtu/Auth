@@ -42,9 +42,7 @@ class ResetRedisCommand extends Command
         if (!$routes->isHit()) {
             $routes->set('test Value');
             $cache->save($routes);
-            $output->writeln('we is here');
         }
         $output->writeln($routes->get());
-
     }
 }
