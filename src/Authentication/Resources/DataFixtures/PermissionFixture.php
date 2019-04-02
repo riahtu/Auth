@@ -31,7 +31,8 @@ class PermissionFixture extends Fixture
             'make_role' => '/api/role/new',
             'delete_role' => '/api/role/delete',
             'new_client_register' => '/api/register/client',
-            'get_user_settings' => '/api/user/settings'
+            'get_user_settings' => '/api/user/settings',
+            'get_public_key' => '/api/client/key'
         );
 
         foreach ($arrayOfPermissions as $key => $value) {

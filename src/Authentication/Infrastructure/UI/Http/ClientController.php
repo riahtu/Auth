@@ -2,6 +2,8 @@
 
 namespace Authentication\Infrastructure\UI\Http;
 
+use Authentication\Application\Service\Client\GetPublicKeyRequest;
+use Authentication\Application\Service\Client\GetPublicKeyService;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,5 +31,19 @@ class ClientController extends TransactionalRestController
             )
             );
         return new JsonResponse($response, Response::HTTP_CREATED);
+    }
+
+    /**
+     * @Rest\Get("/api/client/key" , name="get_public_key")
+     */
+    public function getPublicKey(GetPublicKeyService $service)
+    {
+        $result =  $service->execute(
+            new GetPublicKeyRequest(
+                $this->getParameter('kernel.project_dir')
+            )
+        );
+
+        return new JsonResponse($result, JsonResponse::HTTP_OK);
     }
 }

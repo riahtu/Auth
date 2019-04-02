@@ -42,7 +42,8 @@ class RoleFixture extends Fixture implements DependentFixtureInterface
                     'remove_role_from_user',
                     'make_role',
                     'delete_role',
-                    'new_client_register'
+                    'new_client_register',
+                    'get_public_key'
                 ),
             ),
             'ROLE_ANON'  => array(
