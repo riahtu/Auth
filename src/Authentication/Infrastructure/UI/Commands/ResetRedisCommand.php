@@ -9,6 +9,7 @@
 namespace Authentication\Infrastructure\UI\Commands;
 
 
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\Adapter\RedisAdapter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -36,7 +37,14 @@ class ResetRedisCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $redisConnection = RedisAdapter::createConnection($this->redisServer);
-        var_dump($redisConnection);
-        die();
+        $cache = new RedisAdapter($redisConnection);
+        $routes = $cache->getItem('security.routes');
+        if (!$routes->isHit()) {
+            $routes->set('test Value');
+            $cache->save($routes);
+            $output->writeln('we is here');
+        }
+        $output->writeln($routes->get());
+
     }
 }
