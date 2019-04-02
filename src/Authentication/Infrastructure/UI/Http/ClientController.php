@@ -35,13 +35,14 @@ class ClientController extends TransactionalRestController
 
     /**
      * @Rest\Get("/api/client/key" , name="get_public_key")
+     * @param GetPublicKeyService $service
+     *
+     * @return JsonResponse
      */
     public function getPublicKey(GetPublicKeyService $service)
     {
         $result =  $service->execute(
-            new GetPublicKeyRequest(
-                $this->getParameter('kernel.project_dir')
-            )
+            new GetPublicKeyRequest()
         );
 
         return new JsonResponse($result, JsonResponse::HTTP_OK);

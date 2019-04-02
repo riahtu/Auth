@@ -11,20 +11,4 @@ namespace Authentication\Application\Service\Client;
 
 class GetPublicKeyRequest
 {
-    private $rootDir;
-
-    public function __construct(
-        $rootDir
-    )
-    {
-        $this->rootDir = $rootDir;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRootDir()
-    {
-        return $this->rootDir;
-    }
 }

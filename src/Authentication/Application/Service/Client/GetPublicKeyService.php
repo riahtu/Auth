@@ -11,6 +11,13 @@ namespace Authentication\Application\Service\Client;
 
 class GetPublicKeyService
 {
+    private $projectDir;
+
+    public function __construct($projectDir)
+    {
+        $this->projectDir = $projectDir;
+    }
+
     /**
      * @param GetPublicKeyRequest $request
      *
@@ -18,6 +25,6 @@ class GetPublicKeyService
      */
     public function execute($request = null)
     {
-        return file_get_contents($request->getRootDir() . "/config/jwt/public.pem");
+        return file_get_contents($this->projectDir . "/config/jwt/public.pem");
     }
 }
