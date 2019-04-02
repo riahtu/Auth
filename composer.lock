@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "768270813e2929f93197a8a705b7b100",
+    "content-hash": "cc2108bf8992ed62d85150b66c279cd2",
     "packages": [
         {
             "name": "blackbit/transactional",
