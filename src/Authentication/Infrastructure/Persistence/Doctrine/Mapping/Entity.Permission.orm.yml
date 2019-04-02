@@ -13,6 +13,8 @@ Authentication\Domain\Entity\Permission:
       type: string
     route:
       type: string
+    type:
+      type: string
 
   manyToMany:
     roles:

@@ -24,24 +24,45 @@ class PermissionFixture extends Fixture
     public function load(ObjectManager $manager)
     {
         $arrayOfPermissions = array(
-            'new_user_register' => '/api/register/user',
-            'create_token' => '/api/token/create',
-            'assign_role_to_user' => '/api/user/role/add',
-            'remove_role_from_user' => '/api/user/role/remove',
-            'make_role' => '/api/role/new',
-            'delete_role' => '/api/role/delete',
-            'new_client_register' => '/api/register/client',
-            'get_user_settings' => '/api/user/settings',
-            'get_public_key' => '/api/client/key'
+            'new_user_register' => array(
+                '/api/register/user' => 'POST'
+            ),
+            'create_token' => array(
+                '/api/token/create' => 'POST'
+            ),
+            'assign_role_to_user' => array(
+                '/api/user/role/add' => 'POST'
+            ),
+            'remove_role_from_user' => array(
+                '/api/user/role/remove' => 'DELETE'
+            ),
+            'make_role' => array(
+                '/api/role/new' => 'POST'
+            ),
+            'delete_role' => array(
+                '/api/role/delete' => 'DELETE'
+            ),
+            'new_client_register' => array(
+                '/api/register/client' => 'POST'
+            ),
+            'get_user_settings' => array(
+                '/api/user/settings' => 'GET'
+            ),
+            'get_public_key' => array(
+                '/api/client/key' => 'POST'
+            )
         );
 
-        foreach ($arrayOfPermissions as $key => $value) {
-            $permission = new Permission(
-                $key,
-                $value
-            );
-            $this->setReference($key, $permission);
-            $manager->persist($permission);
+        foreach ($arrayOfPermissions as $name => $array) {
+            foreach ($array as $key => $value){
+                $permission = new Permission(
+                    $name,
+                    $key,
+                    $value
+                );
+                $this->setReference($key, $permission);
+                $manager->persist($permission);
+            }
         }
         $manager->flush();
     }

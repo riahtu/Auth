@@ -34,7 +34,7 @@ class ClientController extends TransactionalRestController
     }
 
     /**
-     * @Rest\Get("/api/client/key" , name="get_public_key")
+     * @Rest\Post("/api/client/key" , name="get_public_key")
      * @param GetPublicKeyService $service
      *
      * @return JsonResponse
