@@ -134,11 +134,17 @@ class ApiAuthenticatorService extends AbstractGuardAuthenticator
         $accessToken = $this->em->getRepository(AccessToken::class)
                                 ->findOneBy(['token' => $credentials['token']]);
 
-        if ( ! $accessToken) {
-            return null;
+        if ( $accessToken) {
+            return $accessToken->getUser();
         }
 
-        return $accessToken->getUser();
+        $accessToken = $this->em->getRepository(\Authentication\Domain\Entity\Client\AccessToken::class)
+                                ->findOneBy(['token' => $credentials['token']]);
+        if( $accessToken){
+            return $accessToken->getClient();
+        }
+
+        return null;
     }
 
     /**

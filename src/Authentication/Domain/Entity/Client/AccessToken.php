@@ -97,4 +97,12 @@ class AccessToken
     {
         $this->active = $active;
     }
+
+    /**
+     * @return Client
+     */
+    public function getClient(): Client
+    {
+        return $this->client;
+    }
 }
