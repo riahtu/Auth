@@ -21,4 +21,11 @@ class ClientTest extends DomainTestCase
         ));
         $this->assertSame(Response::HTTP_CREATED, $client->getResponse()->getStatusCode());
     }
+
+    public function testAnAuthenticatedClientCanGetThePublicKey(): void
+    {
+        $client = $this->runAsClient();
+        $client->request('POST', '/api/client/key');
+        $this->assertSame(Response::HTTP_OK, $client->getResponse()->getStatusCode());
+    }
 }

@@ -10,6 +10,7 @@ namespace App\Tests\SetUp;
 
 
 
+use Authentication\Resources\DataFixtures\ClientFixture;
 use Liip\FunctionalTestBundle\Test\WebTestCase;
 use Authentication\Domain\Entity\User\User;
 use Authentication\Resources\DataFixtures\UserFixture;
@@ -72,6 +73,16 @@ class DomainTestCase extends WebTestCase
         $client->setServerParameters(array(
             'PHP_AUTH_USER' => UserFixture::USER_USERNAME,
             'PHP_AUTH_PW' => UserFixture::USER_PASSWORD
+        ));
+        return $client;
+    }
+
+    public function runAsClient(): Client
+    {
+        $client = self::createClient();
+        $token = $this->fixtures->getReference(ClientFixture::CLIENT_NAME);
+        $client->setServerParameters(array(
+            'HTTP_Authorization' => 'Bearer ' . $token->getToken()
         ));
         return $client;
     }
