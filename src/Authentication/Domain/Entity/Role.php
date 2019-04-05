@@ -19,6 +19,7 @@ class Role
     const STARTER_ROLE = 'ROLE_USER';
     const ANON_ROLE = 'ROLE_ANON';
     const ADMIN_ROLE = 'ROLE_ADMIN';
+    const ROLE_CLIENT = 'ROLE_CLIENT';
 
     private $id;
     /**
@@ -68,7 +69,7 @@ class Role
     }
 
     /**
-     * @param Client[] $clients
+     * @param Client $client
      */
     public function addClient(Client $client): void
     {
@@ -77,7 +78,7 @@ class Role
 
 
     /**
-     * @return Permission[]
+     * @return PersistentCollection
      */
     public function getPermissions(): PersistentCollection
     {

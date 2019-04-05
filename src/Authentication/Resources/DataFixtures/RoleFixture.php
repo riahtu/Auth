@@ -52,6 +52,12 @@ class RoleFixture extends Fixture implements DependentFixtureInterface
                     'new_user_register'
                 ),
             ),
+            'ROLE_CLIENT'  => array(
+                'name'       => 'Client',
+                'permission' => array(
+                    'get_public_key'
+                ),
+            ),
         );
         foreach ($roles as $roleRef => $specs) {
             $role = new Role(

@@ -2,6 +2,8 @@
 
 namespace Authentication\Application\Service\Client;
 
+use Authentication\Domain\Entity\Role;
+use Authentication\Infrastructure\Repositories\Client\ClientRepository;
 use Transactional\Interfaces\TransactionalServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Authentication\Domain\Services\Exceptions\NotAllCredentialsSetException;
@@ -14,9 +16,12 @@ class CreateNewClientService implements TransactionalServiceInterface
      */
     private $clientRepository;
 
+    private $roleRepository;
+
     public function __construct(EntityManagerInterface $em)
     {
         $this->clientRepository = $em->getRepository(Client::class);
+        $this->roleRepository = $em->getRepository(Role::class);
     }
 
     /**
@@ -36,6 +41,10 @@ class CreateNewClientService implements TransactionalServiceInterface
             $request->getName(),
             $request->getIp()
         );
+
+        $role = $this->roleRepository->findByReference(Role::ROLE_CLIENT);
+
+        $client->addRole($role);
 
         $this->clientRepository->add($client);
 
