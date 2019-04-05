@@ -25,14 +25,20 @@ class ImportRoutesForPermissionService implements TransactionalServiceInterface
     private $importRouteService;
 
     private $permissionRepository;
+    /**
+     * @var UpdatePermissionService
+     */
+    private $updateService;
 
     public function __construct(
         EntityManagerInterface $em,
-        ImportRouteForPermissionService $importRouteService
+        ImportRouteForPermissionService $importRouteService,
+        UpdatePermissionService $updateService
     ) {
         $this->em                 = $em;
         $this->importRouteService = $importRouteService;
         $this->permissionRepository = $this->em->getRepository(Permission::class);
+        $this->updateService = $updateService;
     }
 
     /**
@@ -48,7 +54,10 @@ class ImportRoutesForPermissionService implements TransactionalServiceInterface
             $removedRoutes = $this->removeAllRedundantRoutes($request->getRoutes());
             $returnArray = array_merge($returnArray, $removedRoutes);
         }
-
+        if($request->getUpdate()){
+            $updatedRoutes = $this->updateRoutes($request->getRoutes());
+            return array_merge($returnArray, $updatedRoutes);
+        }
         $importedRoutes = $this->importRoutes($request->getRoutes());
 
         return array_merge($returnArray, $importedRoutes);
@@ -73,6 +82,12 @@ class ImportRoutesForPermissionService implements TransactionalServiceInterface
             if ( ! in_array($permission->getRoute(), $routeArray)) {
                 $this->permissionRepository->remove($permission);
                 $returnMessage[] = $permission->getRoute();
+            }else{
+                $route = $routes->get($permission->getName());
+                if (!in_array($permission->getType() , $route->getMethods())){
+                    $returnMessage[] = $permission->getRoute();
+                    $this->permissionRepository->remove($permission);
+                }
             }
         }
         return $returnMessage;
@@ -91,6 +106,23 @@ class ImportRoutesForPermissionService implements TransactionalServiceInterface
                     $route->getMethods()
                 )
             ));
+        }
+        return $returnMessage;
+    }
+
+    private function updateRoutes(RouteCollection $routes): array
+    {
+        $returnMessage = array();
+        $returnMessage[] = '-------------- Updated Routes --------------';
+        foreach ($routes->all() as $name => $route) {
+            $returnMessage = array_merge($returnMessage,
+                $this->updateService->execute(
+                    new UpdatePermissionRequest(
+                        $name,
+                        $route->getPath(),
+                        $route->getMethods()
+                    )
+                ));
         }
         return $returnMessage;
     }

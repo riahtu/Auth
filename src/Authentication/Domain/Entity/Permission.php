@@ -44,6 +44,42 @@ class Permission
     }
 
     /**
+     * @param string $name
+     *
+     * @return Permission
+     */
+    public function setName(string $name): Permission
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param string $route
+     *
+     * @return Permission
+     */
+    public function setRoute(string $route): Permission
+    {
+        $this->route = $route;
+
+        return $this;
+    }
+
+    /**
+     * @param string $type
+     *
+     * @return Permission
+     */
+    public function setType(string $type): Permission
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
      * @return PersistentCollection
      */
     public function getRoles(): PersistentCollection

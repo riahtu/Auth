@@ -32,4 +32,9 @@ class PermissionRepository extends EntityRepository
     {
         $this->getEntityManager()->remove($permission);
     }
+
+    public function findByNameAndMethod($name , $method)
+    {
+        return $this->findOneBy(['name' => $name , 'type' => $method]);
+    }
 }

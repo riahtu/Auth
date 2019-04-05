@@ -54,7 +54,9 @@ class ImportRoutesCommand extends Command
     {
         $this
             ->setDescription('Import all defined routes!')
-            ->addOption('clean' , null , InputOption::VALUE_NONE , 'Remove routes in DB that are no longer used in any controller');
+            ->addOption('clean' , null , InputOption::VALUE_NONE , 'Remove routes in DB that are no longer used in any controller')
+            ->addOption('update' , null , InputOption::VALUE_NONE , 'Just update routes in DB')
+        ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -69,7 +71,8 @@ class ImportRoutesCommand extends Command
             ->executeTransaction(
                 new ImportRoutesForPermissionRequest(
                     $routeCollection,
-                    $input->getOption('clean')
+                    $input->getOption('clean'),
+                    $input->getOption('update')
                 )
             );
         foreach ($resultMessage as $msg){
