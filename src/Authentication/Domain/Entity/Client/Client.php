@@ -63,6 +63,7 @@ class Client implements UserInterface
      */
     public function addRole(Role $role)
     {
+        $role->addClient($this);
         $this->roles[] = $role;
     }
 

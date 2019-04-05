@@ -39,12 +39,13 @@ class CheckForPermissionService
     ): void
     {
         if($user instanceof User){
-            $permission = $user->hasPermission($route);
-            if(!$permission){
+            if(!$user->hasPermission($route)){
                 throw new UserDoesntHavePermissionException(['username' => $user->getUsername()]);
             }
         }else if($user instanceof Client){
-
+            if(!$user->hasPermission($route)){
+                throw new UserDoesntHavePermissionException(['client' => $user->getLastActiveAccessToken()->getToken()]);
+            }
         }else{
             $role = $this->em->getRepository(Role::class)->findByReference(Role::ANON_ROLE);
             $permission = $role->hasPermission($route);
