@@ -2,19 +2,39 @@
 
 namespace Authentication\Domain\Entity\Client;
 
+use Authentication\Domain\Entity\Role;
 use Authentication\Domain\Entity\Values\TokenType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * Class Client
+ * @package Authentication\Domain\Entity\Client
+ */
 class Client implements UserInterface
 {
+    /**
+     * @var
+     */
     private $id;
 
+    /**
+     * @var
+     */
     private $name;
+    /**
+     * @var
+     */
     private $ip;
 
+    /**
+     * @var ArrayCollection
+     */
     private $accessTokens;
-
+    /**
+     * @var ArrayCollection
+     */
+    private $roles;
     /**
      * Client constructor.
      *
@@ -31,23 +51,41 @@ class Client implements UserInterface
         $this->name = $name;
         $this->ip = $ip;
         $this->accessTokens = new ArrayCollection();
+        $this->roles = new ArrayCollection();
 
         $this->addAccessToken(new AccessToken(
             TokenType::BASIC_TOKEN
         ));
     }
 
+    /**
+     * @param Role $role
+     */
+    public function addRole(Role $role)
+    {
+        $this->roles[] = $role;
+    }
+
+    /**
+     * @param AccessToken $token
+     */
     public function addAccessToken(AccessToken $token)
     {
         $token->setClient($this);
         $this->accessTokens[] = $token;
     }
 
+    /**
+     * @return ArrayCollection
+     */
     public function getAccessTokens()
     {
         return $this->accessTokens;
     }
 
+    /**
+     * @return bool|mixed
+     */
     public function getLastActiveAccessToken()
     {
         foreach ($this->getAccessTokens() as $token){
@@ -58,6 +96,9 @@ class Client implements UserInterface
         return false;
     }
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
@@ -79,20 +120,6 @@ class Client implements UserInterface
         return $this->ip;
     }
 
-    /**
-     * Returns the roles granted to the user.
-     *
-     *     public function getRoles()
-     *     {
-     *         return ['ROLE_USER'];
-     *     }
-     *
-     * Alternatively, the roles might be stored on a ``roles`` property,
-     * and populated in any number of different ways when the user object
-     * is created.
-     *
-     * @return (Role|string)[] The user roles
-     */
     public function getRoles()
     {
         return [];

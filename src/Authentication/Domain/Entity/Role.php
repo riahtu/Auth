@@ -9,6 +9,7 @@
 namespace Authentication\Domain\Entity;
 
 
+use Authentication\Domain\Entity\Client\Client;
 use Authentication\Domain\Entity\User\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\PersistentCollection;
@@ -36,6 +37,10 @@ class Role
      * @var array
      */
     private $permissions;
+    /**
+     * @var Client[]
+     */
+    private $clients;
 
     /**
      * Role constructor.
@@ -50,8 +55,26 @@ class Role
         $this->role = $role;
         $this->users = new ArrayCollection();
         $this->permissions = new ArrayCollection();
+        $this->clients = new ArrayCollection();
         $this->name = $name;
     }
+
+    /**
+     * @return Client[]
+     */
+    public function getClients(): array
+    {
+        return $this->clients;
+    }
+
+    /**
+     * @param Client[] $clients
+     */
+    public function addClient(Client $client): void
+    {
+        $this->clients[] = $client;
+    }
+
 
     /**
      * @return Permission[]

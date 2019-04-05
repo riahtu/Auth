@@ -12,7 +12,10 @@ Authentication\Domain\Entity\Client\Client:
       targetEntity: Authentication\Domain\Entity\Client\AccessToken
       mappedBy: client
       cascade: ["persist", "merge", "remove"]
-
+  manyToMany:
+    roles:
+      targetEntity: Authentication\Domain\Entity\Role
+      mappedBy: clients
   fields:
     name:
       type: string

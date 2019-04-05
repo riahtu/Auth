@@ -18,6 +18,9 @@ Authentication\Domain\Entity\Role:
     users:
       targetEntity: Authentication\Domain\Entity\User\User
       inversedBy: roles
+    clients:
+      targetEntity: Authentication\Domain\Entity\Client\Client
+      inversedBy: roles
     permissions:
       targetEntity: Authentication\Domain\Entity\Permission
       inversedBy: roles
