@@ -9,6 +9,7 @@
 namespace Authentication\Domain\Services\Permission;
 
 
+use Authentication\Domain\Entity\Client\Client;
 use Doctrine\ORM\EntityManagerInterface;
 use Authentication\Domain\Entity\Role;
 use Authentication\Domain\Entity\User\User;
@@ -42,6 +43,8 @@ class CheckForPermissionService
             if(!$permission){
                 throw new UserDoesntHavePermissionException(['username' => $user->getUsername()]);
             }
+        }else if($user instanceof Client){
+
         }else{
             $role = $this->em->getRepository(Role::class)->findByReference(Role::ANON_ROLE);
             $permission = $role->hasPermission($route);
