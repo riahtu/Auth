@@ -32,7 +32,7 @@ services:
       working_dir: /application
       networks:
         - backend_auth
-#        - reverse-proxy-nginx_reverse-proxy
+        - reverse-proxy-nginx_reverse-proxy
       volumes:
         - .:/application
         - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
@@ -42,7 +42,7 @@ services:
       container_name: auth-webserver
       working_dir: /application
       networks:
-#        - reverse-proxy-nginx_reverse-proxy
+        - reverse-proxy-nginx_reverse-proxy
         - backend_auth
       volumes:
           - .:/application
@@ -53,8 +53,8 @@ services:
 
 networks:
   backend_auth:
-#  reverse-proxy-nginx_reverse-proxy:
-#    external: true
+  reverse-proxy-nginx_reverse-proxy:
+    external: true
 
 
 #    auth-rabbit:
