@@ -34,13 +34,15 @@ class UpdatePermissionService
         $returnMessage = array();
         foreach ($request->getMethods() as $method){
             $permissionRepository = $this->em->getRepository(Permission::class);
-            $permission = $permissionRepository->findByNameAndMethod($request->getName() , $method);
+            $permission = $permissionRepository->findByName($request->getName());
             /**
              * @var Permission $permission
              */
             if($permission) {
-                $permission->setRoute($request->getRoute());
-                $returnMessage[] = 'Route ' . $request->getName() .' -> ' . $method . ' ' . $request->getRoute() . ' has been updated';
+                if($permission->getRoute() !== $request->getRoute()){
+                    $permission->setRoute($request->getRoute());
+                    $returnMessage[] = 'Route ' . $request->getName() .' -> ' . $method . ' ' . $request->getRoute() . ' has been updated';
+                }
             }else{
                 $permission = new Permission(
                     $request->getName(),
