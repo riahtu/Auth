@@ -25,6 +25,10 @@ class GetPublicKeyService
      */
     public function execute($request = null)
     {
-        return file_get_contents($this->projectDir . "/config/jwt/public.pem");
+        $file = file_get_contents($this->projectDir . "/config/jwt/public.pem");
+        $returnData['key'] = $file;
+        $returnData['requestedBy'] = $request->getClient()->getName();
+        $returnData['requestedByIp'] = $request->getClient()->getIp();
+        return $returnData;
     }
 }

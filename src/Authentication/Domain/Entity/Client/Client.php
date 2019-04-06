@@ -70,7 +70,7 @@ class Client implements UserInterface
     /**
      * @param AccessToken $token
      */
-    public function addAccessToken(AccessToken $token)
+    public function addAccessToken(AccessToken $token):void
     {
         $token->setClient($this);
         $this->accessTokens[] = $token;
@@ -79,7 +79,7 @@ class Client implements UserInterface
     /**
      * @return ArrayCollection
      */
-    public function getAccessTokens()
+    public function getAccessTokens(): ArrayCollection
     {
         return $this->accessTokens;
     }
@@ -121,9 +121,16 @@ class Client implements UserInterface
         return $this->ip;
     }
 
-    public function getRoles()
+    public function getRoles(): array
     {
-        return [];
+        $roleArray = array();
+        /**
+         * @var Role $role
+         */
+        foreach ($this->roles as $role){
+            $roleArray[] = $role->getRole();
+        }
+        return array_unique($roleArray);
     }
 
     /**
