@@ -42,8 +42,8 @@ class CreateTokenRequest
         $this->user          = $user;
         $this->type          = $type;
         $this->requestedData = $requestedData;
-        $this->intendedFor = $intendedFor;
-        $this->subject = $subject;
+        $this->intendedFor   = $intendedFor;
+        $this->subject       = $subject;
     }
 
     /**
