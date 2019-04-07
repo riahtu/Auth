@@ -31,7 +31,7 @@ class UserController extends TransactionalRestController
      *
      * @return JsonResponse
      *
-     * @Rest\Post("/api/register/user" , name="new_user_register")
+     * @Rest\Post("/api/user/register" , name="new_user_register")
      */
     public function registerUser(CreateUserService $service, Request $request): JsonResponse
     {
@@ -40,8 +40,7 @@ class UserController extends TransactionalRestController
             new CreateUserRequest(
                 $request->get('email'),
                 $request->get('password'),
-                $request->get('username'),
-                $request->get('agreementSigned')
+                $request->get('username')
             )
         );
 
@@ -52,10 +51,9 @@ class UserController extends TransactionalRestController
      *
      * @param Request $request
      *
-     * @IsGranted("ROLE_USER")
      *
      * @return JsonResponse
-     * @Rest\Post("/api/token/create" , name="create_token")
+     * @Rest\Post("/api/user/token/create" , name="create_token")
      */
     public function createJwtToken(CreateTokenService $service, Request $request): JsonResponse
     {
@@ -79,7 +77,6 @@ class UserController extends TransactionalRestController
      * @param AssignRoleToUserService $service
      * @param Request $request
      *
-     * @IsGranted("ROLE_ADMIN")
      *
      * @return JsonResponse
      *
@@ -102,7 +99,6 @@ class UserController extends TransactionalRestController
      * @param RemoveRoleFromUserService $service
      * @param Request $request
      *
-     * @IsGranted("ROLE_ADMIN")
      *
      * @return JsonResponse
      *
@@ -119,14 +115,5 @@ class UserController extends TransactionalRestController
         );
 
         return new JsonResponse($response, Response::HTTP_OK);
-    }
-    /**
-     *
-     * @Rest\Get("/api/user/settings" , name="get_user_settings")
-     */
-    public function getUserSettings(Request $request): JsonResponse
-    {
-        $user = $this->getUser();
-        return new JsonResponse(array('this') , JsonResponse::HTTP_OK);
     }
 }

@@ -22,7 +22,6 @@ use Symfony\Component\HttpFoundation\Response;
  * Class RoleController
  * @package Authentication\Infrastructure\UI\Http
  *
- * @IsGranted("ROLE_ADMIN")
  */
 class RoleController extends TransactionalRestController
 {
@@ -31,7 +30,6 @@ class RoleController extends TransactionalRestController
      * @param CreateNewRoleService $service
      * @param Request $request
      *
-     * @IsGranted("ROLE_ADMIN")
      *
      * @return JsonResponse
      *
@@ -54,7 +52,6 @@ class RoleController extends TransactionalRestController
      * @param RemoveRoleService $service
      * @param Request $request
      *
-     * @IsGranted("ROLE_ADMIN")
      *
      * @return JsonResponse
      *

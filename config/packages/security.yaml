@@ -13,15 +13,26 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
+        user:
             anonymous: true
-            context: main
+            context: user
             stateless: true
+            pattern: ^/api/user
             guard:
                 authenticators:
-                    - Authentication\Application\Service\Authenticators\ApiAuthenticatorService
+                    - Authentication\Application\Service\Authenticators\UserApiAuthenticatorService
                     - Authentication\Application\Service\Authenticators\UserCredentialsAuthenticatorService
-                entry_point: Authentication\Application\Service\Authenticators\ApiAuthenticatorService
+                entry_point: Authentication\Application\Service\Authenticators\UserApiAuthenticatorService
+        client:
+            anonymous: true
+            context: user
+            stateless: true
+            pattern: ^/api/client
+            guard:
+                authenticators:
+                    - Authentication\Application\Service\Authenticators\ClientApiAuthenticatorService
+                    - Authentication\Application\Service\Authenticators\UserCredentialsAuthenticatorService
+                entry_point: Authentication\Application\Service\Authenticators\ClientApiAuthenticatorService
 
             # activate different ways to authenticate
 

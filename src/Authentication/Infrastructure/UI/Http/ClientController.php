@@ -15,7 +15,7 @@ use Authentication\Application\Service\Client\CreateNewClientRequest;
 class ClientController extends TransactionalRestController
 {
     /**
-     * @Rest\Post("/api/register/client" , name="new_client_register")
+     * @Rest\Post("/api/client/register" , name="new_client_register")
      * @param CreateNewClientService $service
      * @param Request $request
      *

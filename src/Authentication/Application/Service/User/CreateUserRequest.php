@@ -23,36 +23,22 @@ class CreateUserRequest
      * @var string
      */
     private $username;
-    /**
-     * @var bool
-     */
-    private $signed;
-    /**
-     * @var string
-     */
-    private $role;
 
     /**
      * NewUserRegistrationRequest constructor.
      * @param string $email
      * @param string $password
      * @param string $username
-     * @param bool $signed
-     * @param string|null $role
      */
     public function __construct(
         string $email,
         string $password,
-        string $username,
-        bool $signed = false,
-        string $role = null
+        string $username
     )
     {
         $this->email = $email;
         $this->password = $password;
         $this->username = $username;
-        $this->signed = $signed;
-        $this->role = $role;
     }
 
     /**
@@ -77,21 +63,5 @@ class CreateUserRequest
     public function getUsername(): string
     {
         return $this->username;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSigned(): bool
-    {
-        return $this->signed;
-    }
-
-    /**
-     * @return null
-     */
-    public function getRole()
-    {
-        return $this->role;
     }
 }

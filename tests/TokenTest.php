@@ -24,7 +24,7 @@ class TokenTest extends DomainTestCase
     public function testAuthenticatedUserCanGenerateJwtAccessToken(): void
     {
         $client = $this->runAsUserWithBasicAuth();
-        $client->request('POST', '/api/token/create', array(
+        $client->request('POST', '/api/user/token/create', array(
             'type'=> 'JWT',
             'intendedFor' => $this->fixtures->getReference(ClientFixture::CLIENT_NAME)->getToken(),
             'subject' => 'test',
@@ -35,7 +35,7 @@ class TokenTest extends DomainTestCase
     public function testAuthenticatedUserCanGenerateBasicAccessToken(): void
     {
         $client = $this->runAsUserWithBasicAuth();
-        $client->request('POST', '/api/token/create', array(
+        $client->request('POST', '/api/user/token/create', array(
             'type'=> 'BASIC',
             'intendedFor' => $this->fixtures->getReference(ClientFixture::CLIENT_NAME)->getToken(),
             'subject' => 'test',
@@ -47,7 +47,7 @@ class TokenTest extends DomainTestCase
     public function testUnAuthenticatedUserCanNotGenerateAccessToken(): void
     {
         $client = self::createClient();
-        $client->request('POST', '/api/token/create', array(
+        $client->request('POST', '/api/user/token/create', array(
             'type'=> 'JWT',
             'intendedFor' => 'test',
             'subject' => 'test',
@@ -56,25 +56,4 @@ class TokenTest extends DomainTestCase
         $this->assertSame(Response::HTTP_UNAUTHORIZED, $client->getResponse()->getStatusCode());
     }
 
-
-//    public function testUserCanUseBasicAuthOnlyToCreateToken(): void
-//    {
-//        $client = $this->runAsAdminWithBasicAuth();
-//        $client->request('GET', '/api/token/create', array(
-//            'type'=> 'JWT',
-//            'intendedFor' => 'test',
-//            'subject' => 'test',
-//            'requestData' => json_encode(['USER_ROLE'])
-//        ));
-//        $this->assertSame(Response::HTTP_CREATED, $client->getResponse()->getStatusCode());
-//
-//        $client = $this->runAsAdminWithBasicAuth();
-//        $client->request('POST', '/api/role/new', array(
-//            'type'=> 'JWT',
-//            'intendedFor' => 'test',
-//            'subject' => 'test',
-//            'requestData' => json_encode(['USER_ROLE'])
-//        ));
-//        $this->assertSame(Response::HTTP_UNAUTHORIZED, $client->getResponse()->getStatusCode());
-//    }
 }

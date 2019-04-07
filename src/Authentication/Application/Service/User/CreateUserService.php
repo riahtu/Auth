@@ -43,11 +43,8 @@ class CreateUserService implements TransactionalServiceInterface
      */
     public function execute($request = null): array
     {
-        if ($request->getRole()) {
-            $role = $this->roleRepository->findByReference($request->getRole());
-        } else {
-            $role = $this->roleRepository->findByReference(Role::STARTER_ROLE);
-        }
+        $role = $this->roleRepository->findByReference(Role::STARTER_ROLE);
+
         if(!$role){
             throw new GeneralDomainServerError(['contact' => 'me']);
         }

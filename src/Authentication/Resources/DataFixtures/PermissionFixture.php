@@ -25,10 +25,10 @@ class PermissionFixture extends Fixture
     {
         $arrayOfPermissions = array(
             'new_user_register' => array(
-                '/api/register/user' => 'POST'
+                '/api/user/register' => 'POST'
             ),
             'create_token' => array(
-                '/api/token/create' => 'POST'
+                '/api/user/token/create' => 'POST'
             ),
             'assign_role_to_user' => array(
                 '/api/user/role/add' => 'POST'
@@ -43,7 +43,7 @@ class PermissionFixture extends Fixture
                 '/api/role/delete' => 'DELETE'
             ),
             'new_client_register' => array(
-                '/api/register/client' => 'POST'
+                '/api/client/register' => 'POST'
             ),
             'get_user_settings' => array(
                 '/api/user/settings' => 'GET'

@@ -25,7 +25,7 @@ class UserTest extends DomainTestCase
     public function testAnewUserCanRegister(): void
     {
         $client = self::createClient();
-        $client->request('POST', '/api/register/user' , array(
+        $client->request('POST', '/api/user/register' , array(
             'email' => 'test@test.com',
             'password' => 'test',
             'username' => 'test',
@@ -37,14 +37,14 @@ class UserTest extends DomainTestCase
     public function testAnewUserCanNotRegisterWithTakenCredentials(): void
     {
         $client = self::createClient();
-        $client->request('POST', '/api/register/user' , array(
+        $client->request('POST', '/api/user/register' , array(
             'email' => 'test@test.com',
             'password' => 'test',
             'username' => UserFixture::USER_USERNAME,
             'agreementSigned' => 1
         ));
         $this->assertSame(Response::HTTP_CONFLICT, $client->getResponse()->getStatusCode());
-        $client->request('POST', '/api/register/user' , array(
+        $client->request('POST', '/api/user/register' , array(
             'email' => UserFixture::USER_EMAIL,
             'password' => 'test',
             'username' => 'test',

@@ -8,6 +8,7 @@
 
 namespace Authentication\Domain\Services\EventListeners;
 
+use Authentication\Domain\Services\Exceptions\UserDoesntHavePermissionException;
 use Authentication\Domain\Services\Permission\CheckForPermissionService;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -49,6 +50,9 @@ class RequestListener implements EventSubscriberInterface
 
     public function checkForPermission(GetResponseEvent $event): void
     {
+        if(!$this->securityStorage->getToken()){
+            throw new UserDoesntHavePermissionException(['user' => 'Anon']);
+        }
         $user = $this->securityStorage->getToken()->getUser();
         $this->checkForPermissionService->execute(
             $user,
