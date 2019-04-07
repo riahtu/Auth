@@ -41,11 +41,7 @@ class CreateTokenService implements TransactionalServiceInterface
      */
     public function execute($request = null): string
     {
-
-        $this->isPossible($request);
-
         $user = $this->setOlderTokensForThatAudienceToInactive($request->getUser(), $request->getIntendedFor());
-
 
         switch ($request->getType()){
             case TokenType::JWT_TOKEN:
@@ -59,6 +55,8 @@ class CreateTokenService implements TransactionalServiceInterface
             case TokenType::BASIC_TOKEN:
                 $token = bin2hex(random_bytes(60));
                 break;
+            default:
+                $this->isPossible($request);
         }
 
         $user->addAccessToken(
@@ -71,6 +69,9 @@ class CreateTokenService implements TransactionalServiceInterface
         return $token;
     }
 
+    /**
+     * @param CreateTokenRequest $request
+     */
     private function isPossible($request): void
     {
         if ( ! in_array($request->getType(), TokenType::getTokenTypes())) {
@@ -78,6 +79,12 @@ class CreateTokenService implements TransactionalServiceInterface
         }
     }
 
+    /**
+     * @param User $user
+     * @param string $audience
+     *
+     * @return User
+     */
     private function setOlderTokensForThatAudienceToInactive(User $user, string $audience): User
     {
         $tokens = $user->getAccessTokens();
