@@ -55,16 +55,14 @@ class CreateJwtTokenService
         $subject = null
     ): string {
 
-        $this->checkIfValidRequests($requestedData);
-
         if($audience){
             $this->tokenArgs['aud'] = $audience;
         }
         if($subject){
             $this->tokenArgs['sub'] = $subject;
         }
-
-        $this->addAdditionalData($requestedData , $user);
+        $this->checkIfValidRequests($requestedData);
+        $this->addAdditionalData($user , $requestedData);
 
         $this->sign();
 
@@ -74,11 +72,13 @@ class CreateJwtTokenService
     /**
      * @param array $requests
      */
-    private function checkIfValidRequests(array $requests): void
+    private function checkIfValidRequests(array $requests = null): void
     {
-        foreach ($requests as $request) {
-            if ( ! in_array($request, $this->validRequests , false)) {
-                throw new RequestedDataNotValidException(['requestedData' => $request]);
+        if (!empty($requests)){
+            foreach ($requests as $request) {
+                if ( ! in_array($request, $this->validRequests , false)) {
+                    throw new RequestedDataNotValidException(['requestedData' => $request]);
+                }
             }
         }
     }
@@ -87,16 +87,18 @@ class CreateJwtTokenService
      * @param array $requested
      * @param User $user
      */
-    private function addAdditionalData(array $requested, User $user): void
+    private function addAdditionalData(User $user , array $requested = null): void
     {
-        foreach ($requested as $request) {
-            switch ($request) {
-                case 'USER_ROLE':
-                    $this->tokenArgs['rol'] = $user->getRoles();
-                    break;
-                case 'USER_USERNAME':
-                    $this->tokenArgs['usn'] = $user->getUsername();
-                    break;
+        if(!empty($requested)){
+            foreach ($requested as $request) {
+                switch ($request) {
+                    case 'USER_ROLE':
+                        $this->tokenArgs['rol'] = $user->getRoles();
+                        break;
+                    case 'USER_USERNAME':
+                        $this->tokenArgs['usn'] = $user->getUsername();
+                        break;
+                }
             }
         }
     }

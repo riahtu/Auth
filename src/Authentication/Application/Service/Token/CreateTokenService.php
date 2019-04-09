@@ -77,7 +77,7 @@ class CreateTokenService implements TransactionalServiceInterface
 
         $user->addAccessToken(
             new AccessToken(
-                $request->getType(),
+                $request->getType() ?: TokenType::JWT_TOKEN,
                 $request->getAudience(),
                 $token
             )
