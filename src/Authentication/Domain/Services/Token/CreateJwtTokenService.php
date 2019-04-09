@@ -36,7 +36,7 @@ class CreateJwtTokenService
     ) {
         $this->privateKeyLocation = $privateKeyLocation;
         $this->projectDir         = $projectDir;
-        $this->tokenArgs['iss'] = $appName;
+        $this->tokenArgs['iss']   = $appName;
     }
 
     /**
@@ -46,23 +46,20 @@ class CreateJwtTokenService
      *
      * @param $subject
      *
-     * @return \Lcobucci\JWT\Token
+     * @return string
      */
     public function execute(
         User $user,
+        $audience,
         array $requestedData = null,
-        $audience = null,
         $subject = null
     ): string {
-
-        if($audience){
-            $this->tokenArgs['aud'] = $audience;
-        }
-        if($subject){
+        if ($subject) {
             $this->tokenArgs['sub'] = $subject;
         }
+        $this->tokenArgs['aud'] = $audience;
         $this->checkIfValidRequests($requestedData);
-        $this->addAdditionalData($user , $requestedData);
+        $this->addAdditionalData($user, $requestedData);
 
         $this->sign();
 
@@ -74,9 +71,9 @@ class CreateJwtTokenService
      */
     private function checkIfValidRequests(array $requests = null): void
     {
-        if (!empty($requests)){
+        if ( ! empty($requests)) {
             foreach ($requests as $request) {
-                if ( ! in_array($request, $this->validRequests , false)) {
+                if ( ! in_array($request, $this->validRequests, false)) {
                     throw new RequestedDataNotValidException(['requestedData' => $request]);
                 }
             }
@@ -87,9 +84,9 @@ class CreateJwtTokenService
      * @param array $requested
      * @param User $user
      */
-    private function addAdditionalData(User $user , array $requested = null): void
+    private function addAdditionalData(User $user, array $requested = null): void
     {
-        if(!empty($requested)){
+        if ( ! empty($requested)) {
             foreach ($requested as $request) {
                 switch ($request) {
                     case 'USER_ROLE':
@@ -105,7 +102,7 @@ class CreateJwtTokenService
 
     private function sign(): void
     {
-        $privateKey = file_get_contents($this->projectDir . $this->privateKeyLocation);
+        $privateKey  = file_get_contents($this->projectDir . $this->privateKeyLocation);
         $this->token = JWT::encode($this->token, $privateKey, 'RS256');
     }
 }

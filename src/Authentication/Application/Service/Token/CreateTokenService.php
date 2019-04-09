@@ -42,7 +42,7 @@ class CreateTokenService implements TransactionalServiceInterface
      */
     public function execute($request = null): string
     {
-        if(!$request->getAudience()){
+        if ( ! $request->getAudience()) {
             throw new NotAllParametersHaveBeenSetException(
                 ['required' => 'audience']
             );
@@ -50,29 +50,17 @@ class CreateTokenService implements TransactionalServiceInterface
 
         $user = $this->setOlderTokensForThatAudienceToInactive($request->getUser(), $request->getAudience());
 
-        if(!$request->getType()){
-            $token = $this->createJwtTokenService->execute(
-                $user,
-                $request->getRequestedData(),
-                $request->getAudience(),
-                $request->getSubject()
-            );
-        }else{
-            switch ($request->getType()){
-                case TokenType::JWT_TOKEN:
-                    $token = $this->createJwtTokenService->execute(
-                        $user,
-                        $request->getRequestedData(),
-                        $request->getAudience(),
-                        $request->getSubject()
-                    );
-                    break;
-                case TokenType::BASIC_TOKEN:
-                    $token = bin2hex(random_bytes(60));
-                    break;
-                default:
-                    $this->isPossible($request);
-            }
+        $this->isPossible($request);
+
+        switch ($request->getType()) {
+            case TokenType::JWT_TOKEN:
+                $token = $this->constructJwtToken($user, $request->getAudience(), $request->getRequestedData(), $request->getSubject());
+                break;
+            case TokenType::BASIC_TOKEN:
+                $token = bin2hex(random_bytes(60));
+                break;
+            default:
+                $token = $this->constructJwtToken($user, $request->getAudience(), $request->getRequestedData(), $request->getSubject());
         }
 
         $user->addAccessToken(
@@ -82,6 +70,7 @@ class CreateTokenService implements TransactionalServiceInterface
                 $token
             )
         );
+
         return $token;
     }
 
@@ -90,7 +79,7 @@ class CreateTokenService implements TransactionalServiceInterface
      */
     private function isPossible($request): void
     {
-        if ( ! in_array($request->getType(), TokenType::getTokenTypes() , false)) {
+        if ($request->getType() && ! in_array($request->getType(), TokenType::getTokenTypes(), false)) {
             throw new TokenTypeNotSupportedException(['type' => $request->getType()]);
         }
     }
@@ -112,5 +101,23 @@ class CreateTokenService implements TransactionalServiceInterface
         }
 
         return $user;
+    }
+
+    /**
+     * @param User $user
+     * @param $audience
+     * @param null $subject
+     * @param array|null $requestedData
+     *
+     * @return string
+     */
+    private function constructJwtToken(User $user, $audience, $subject = null, array $requestedData = null): string
+    {
+        return $this->createJwtTokenService->execute(
+            $user,
+            $audience,
+            $requestedData,
+            $subject
+        );
     }
 }
