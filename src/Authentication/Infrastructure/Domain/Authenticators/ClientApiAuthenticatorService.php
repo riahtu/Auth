@@ -6,7 +6,7 @@
  * Time: 8:37
  */
 
-namespace Authentication\Application\Service\Authenticators;
+namespace Authentication\Infrastructure\Domain\Authenticators;
 
 use Authentication\Domain\Entity\Client\AccessToken;
 use Doctrine\ORM\EntityManagerInterface;

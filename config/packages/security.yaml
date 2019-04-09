@@ -20,9 +20,9 @@ security:
             pattern: ^/api/user
             guard:
                 authenticators:
-                    - Authentication\Application\Service\Authenticators\UserApiAuthenticatorService
-                    - Authentication\Application\Service\Authenticators\UserCredentialsAuthenticatorService
-                entry_point: Authentication\Application\Service\Authenticators\UserApiAuthenticatorService
+                    - Authentication\Infrastructure\Domain\Authenticators\UserApiAuthenticatorService
+                    - Authentication\Infrastructure\Domain\Authenticators\UserCredentialsAuthenticatorService
+                entry_point: Authentication\Infrastructure\Domain\Authenticators\UserApiAuthenticatorService
         client:
             anonymous: true
             context: user
@@ -30,9 +30,9 @@ security:
             pattern: ^/api/client
             guard:
                 authenticators:
-                    - Authentication\Application\Service\Authenticators\ClientApiAuthenticatorService
-                    - Authentication\Application\Service\Authenticators\UserCredentialsAuthenticatorService
-                entry_point: Authentication\Application\Service\Authenticators\ClientApiAuthenticatorService
+                    - Authentication\Infrastructure\Domain\Authenticators\ClientApiAuthenticatorService
+                    - Authentication\Infrastructure\Domain\Authenticators\UserCredentialsAuthenticatorService
+                entry_point: Authentication\Infrastructure\Domain\Authenticators\ClientApiAuthenticatorService
 
             # activate different ways to authenticate
 
