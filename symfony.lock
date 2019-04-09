@@ -108,6 +108,9 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
+    "firebase/php-jwt": {
+        "version": "v5.0.0"
+    },
     "friendsofsymfony/rest-bundle": {
         "version": "2.2",
         "recipe": {
@@ -145,9 +148,6 @@
             "./config/packages/jms_serializer.yaml",
             "./config/packages/prod/jms_serializer.yaml"
         ]
-    },
-    "lcobucci/jwt": {
-        "version": "3.2.5"
     },
     "liip/functional-test-bundle": {
         "version": "2.0.0-alpha14"

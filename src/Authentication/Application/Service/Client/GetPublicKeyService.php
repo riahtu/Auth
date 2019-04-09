@@ -12,10 +12,14 @@ namespace Authentication\Application\Service\Client;
 class GetPublicKeyService
 {
     private $projectDir;
+    private $publicKeyLocation;
 
-    public function __construct($projectDir)
-    {
+    public function __construct(
+        $projectDir,
+        $publicKeyLocation
+    ) {
         $this->projectDir = $projectDir;
+        $this->publicKeyLocation = $publicKeyLocation;
     }
 
     /**
@@ -25,10 +29,11 @@ class GetPublicKeyService
      */
     public function execute($request = null)
     {
-        $file = file_get_contents($this->projectDir . "/config/jwt/public.pem");
-        $returnData['key'] = $file;
-        $returnData['requestedBy'] = $request->getClient()->getName();
+        $file                        = file_get_contents($this->projectDir . $this->publicKeyLocation);
+        $returnData['key']           = $file;
+        $returnData['requestedBy']   = $request->getClient()->getName();
         $returnData['requestedByIp'] = $request->getClient()->getIp();
+
         return $returnData;
     }
 }

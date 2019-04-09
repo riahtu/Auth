@@ -13,6 +13,7 @@ use Authentication\Domain\Entity\User\User;
 use Authentication\Domain\Entity\Values\TokenType;
 use Authentication\Domain\Services\Exceptions\TokenTypeNotSupportedException;
 use Authentication\Domain\Services\Token\CreateJwtTokenService;
+use Firebase\JWT\JWT;
 use Transactional\Interfaces\TransactionalServiceInterface;
 
 class CreateTokenService implements TransactionalServiceInterface
@@ -74,7 +75,7 @@ class CreateTokenService implements TransactionalServiceInterface
      */
     private function isPossible($request): void
     {
-        if ( ! in_array($request->getType(), TokenType::getTokenTypes())) {
+        if ( ! in_array($request->getType(), TokenType::getTokenTypes() , false)) {
             throw new TokenTypeNotSupportedException(['type' => $request->getType()]);
         }
     }

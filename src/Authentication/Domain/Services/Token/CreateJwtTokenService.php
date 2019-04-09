@@ -11,6 +11,7 @@ namespace Authentication\Domain\Services\Token;
 use Authentication\Domain\Entity\User\User;
 use Authentication\Domain\Services\Exceptions\RequestedDataNotValidException;
 use Authentication\Domain\Services\Exceptions\TokenGeneratorErrorException;
+use Firebase\JWT\JWT;
 use Lcobucci\JWT\Builder;
 use Lcobucci\JWT\Signer;
 use Lcobucci\JWT\Signer\Keychain;
@@ -23,6 +24,20 @@ class CreateJwtTokenService
         'USER_USERNAME',
         'USER_ROLE',
     );
+    private $privateKeyLocation;
+    private $projectDir;
+    private $tokenArgs = [];
+    private $token;
+
+    public function __construct(
+        $privateKeyLocation,
+        $projectDir,
+        $appName
+    ) {
+        $this->privateKeyLocation = $privateKeyLocation;
+        $this->projectDir         = $projectDir;
+        $this->tokenArgs['iss'] = $appName;
+    }
 
     /**
      * @param User $user
@@ -36,72 +51,54 @@ class CreateJwtTokenService
     public function execute(
         User $user,
         array $requestedData,
-        $audience,
-        $subject
-    ): string
-    {
-        $builder = $this->constructBasicTokenFromRequest($user, $audience, $subject);
+        $audience = null,
+        $subject = null
+    ): string {
 
-        $builder    = $this->addAdditionalData(
-            $builder,
-            $this->checkIfValidRequests(
-                $requestedData
-            ),
-            $user);
-        $signer     = new Sha256();
-        $keychain   = new Keychain();
-        $privateKey = $keychain->getPrivateKey('file:///application/config/jwt/private.pem');
-        $builder->sign($signer, $privateKey);
+        $this->checkIfValidRequests($requestedData);
 
-        $this->verifyToken($builder->getToken(), $signer, $keychain->getPublicKey('file:///application/config/jwt/public.pem'));
 
-        return $builder->getToken()->__toString();
+
+        $this->addAdditionalData($requestedData , $user);
+
+        $this->sign();
+
+        return $this->token;
     }
 
-    private function constructBasicTokenFromRequest(User $user, $audience, $subject): Builder
-    {
-        $builder = new Builder();
-
-        return $builder
-            ->setIssuer('me')
-            ->setAudience($audience)
-            ->setIssuedAt(time())
-            ->setId(time() . hash('sha256', $user->getId() . $user->getUsername() . $user->getId()))
-            ->setSubject($subject)
-            ->setExpiration(time() + 3600);
-    }
-
-    private function checkIfValidRequests(array $requests): array
+    /**
+     * @param array $requests
+     */
+    private function checkIfValidRequests(array $requests): void
     {
         foreach ($requests as $request) {
-            if ( ! in_array($request, $this->validRequests)) {
+            if ( ! in_array($request, $this->validRequests , false)) {
                 throw new RequestedDataNotValidException(['requestedData' => $request]);
             }
         }
-
-        return $requests;
     }
 
-    private function addAdditionalData(Builder $builder, array $requested, User $user): Builder
+    /**
+     * @param array $requested
+     * @param User $user
+     */
+    private function addAdditionalData(array $requested, User $user): void
     {
         foreach ($requested as $request) {
             switch ($request) {
                 case 'USER_ROLE':
-                    $builder->set('rol', $user->getRoles());
+                    $this->tokenArgs['rol'] = $user->getRoles();
                     break;
                 case 'USER_USERNAME':
-                    $builder->set('usn', $user->getUsername());
+                    $this->tokenArgs['usn'] = $user->getUsername();
                     break;
             }
         }
-
-        return $builder;
     }
 
-    public function verifyToken(Token $token, Signer $signer, $privateKey): void
+    private function sign(): void
     {
-        if(!$token->verify($signer, $privateKey)){
-            throw new TokenGeneratorErrorException(['contact' => 'me']);
-        }
+        $privateKey = file_get_contents($this->projectDir . $this->privateKeyLocation);
+        $this->token = JWT::encode($this->token, $privateKey, 'RS256');
     }
 }
