@@ -60,8 +60,8 @@ class UserController extends TransactionalRestController
 
         $tokenRequest = new CreateTokenRequest(
             $this->getUser(),
+            $request->get('audience'),
             $request->get('type'),
-            $request->get('intendedFor'),
             $request->get('subject'),
             json_decode($request->get('requestData'))
         );

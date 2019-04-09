@@ -11,9 +11,9 @@ namespace Authentication\Application\Service\Token;
 use Authentication\Domain\Entity\User\AccessToken;
 use Authentication\Domain\Entity\User\User;
 use Authentication\Domain\Entity\Values\TokenType;
+use Authentication\Domain\Services\Exceptions\NotAllParametersHaveBeenSetException;
 use Authentication\Domain\Services\Exceptions\TokenTypeNotSupportedException;
 use Authentication\Domain\Services\Token\CreateJwtTokenService;
-use Firebase\JWT\JWT;
 use Transactional\Interfaces\TransactionalServiceInterface;
 
 class CreateTokenService implements TransactionalServiceInterface
@@ -42,28 +42,43 @@ class CreateTokenService implements TransactionalServiceInterface
      */
     public function execute($request = null): string
     {
-        $user = $this->setOlderTokensForThatAudienceToInactive($request->getUser(), $request->getIntendedFor());
+        if(!$request->getAudience()){
+            throw new NotAllParametersHaveBeenSetException(
+                ['required' => 'audience']
+            );
+        }
 
-        switch ($request->getType()){
-            case TokenType::JWT_TOKEN:
-                $token = $this->createJwtTokenService->execute(
-                    $user,
-                    $request->getRequestedData(),
-                    $request->getIntendedFor(),
-                    $request->getSubject()
-                );
-                break;
-            case TokenType::BASIC_TOKEN:
-                $token = bin2hex(random_bytes(60));
-                break;
-            default:
-                $this->isPossible($request);
+        $user = $this->setOlderTokensForThatAudienceToInactive($request->getUser(), $request->getAudience());
+
+        if(!$request->getType()){
+            $token = $this->createJwtTokenService->execute(
+                $user,
+                $request->getRequestedData(),
+                $request->getAudience(),
+                $request->getSubject()
+            );
+        }else{
+            switch ($request->getType()){
+                case TokenType::JWT_TOKEN:
+                    $token = $this->createJwtTokenService->execute(
+                        $user,
+                        $request->getRequestedData(),
+                        $request->getAudience(),
+                        $request->getSubject()
+                    );
+                    break;
+                case TokenType::BASIC_TOKEN:
+                    $token = bin2hex(random_bytes(60));
+                    break;
+                default:
+                    $this->isPossible($request);
+            }
         }
 
         $user->addAccessToken(
             new AccessToken(
                 $request->getType(),
-                $request->getIntendedFor(),
+                $request->getAudience(),
                 $token
             )
         );

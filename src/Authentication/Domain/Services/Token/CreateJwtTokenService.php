@@ -50,14 +50,19 @@ class CreateJwtTokenService
      */
     public function execute(
         User $user,
-        array $requestedData,
+        array $requestedData = null,
         $audience = null,
         $subject = null
     ): string {
 
         $this->checkIfValidRequests($requestedData);
 
-
+        if($audience){
+            $this->tokenArgs['aud'] = $audience;
+        }
+        if($subject){
+            $this->tokenArgs['sub'] = $subject;
+        }
 
         $this->addAdditionalData($requestedData , $user);
 

@@ -19,7 +19,7 @@ class CreateTokenRequest
     private $user;
     private $type;
     private $requestedData;
-    private $intendedFor;
+    private $audience;
     private $subject;
 
     /**
@@ -27,22 +27,22 @@ class CreateTokenRequest
      *
      * @param User $user
      * @param $type
-     * @param $intendedFor
+     * @param $audience
      * @param $subject
      * @param $requestedData
      */
     public function __construct(
         User $user,
-        string $type,
-        string $intendedFor,
-        string $subject,
+        $audience = null,
+        $type = null,
+        $subject = null,
         array $requestedData = null
 
     ) {
         $this->user          = $user;
         $this->type          = $type;
         $this->requestedData = $requestedData;
-        $this->intendedFor   = $intendedFor;
+        $this->audience   = $audience;
         $this->subject       = $subject;
     }
 
@@ -73,9 +73,9 @@ class CreateTokenRequest
     /**
      * @return mixed
      */
-    public function getIntendedFor()
+    public function getAudience()
     {
-        return $this->intendedFor;
+        return $this->audience;
     }
 
     /**
