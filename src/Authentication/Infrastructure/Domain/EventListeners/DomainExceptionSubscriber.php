@@ -6,7 +6,7 @@
  * Time: 15:52
  */
 
-namespace Authentication\Domain\Services\EventListeners;
+namespace Authentication\Infrastructure\Domain\EventListeners;
 
 
 use Authentication\Domain\Services\Exceptions\DomainException;

@@ -111,7 +111,7 @@ class CreateTokenService implements TransactionalServiceInterface
      *
      * @return string
      */
-    private function constructJwtToken(User $user, $audience, $subject = null, array $requestedData = null): string
+    private function constructJwtToken(User $user, $audience,array $requestedData = null, $subject = null): string
     {
         return $this->createJwtTokenService->execute(
             $user,

@@ -26,7 +26,7 @@ class TokenTest extends DomainTestCase
         $client = $this->runAsUserWithBasicAuth();
         $client->request('POST', '/api/user/token/create', array(
             'type'=> 'JWT',
-            'intendedFor' => $this->fixtures->getReference(ClientFixture::CLIENT_NAME)->getToken(),
+            'audience' => $this->fixtures->getReference(ClientFixture::CLIENT_NAME)->getToken(),
             'subject' => 'test',
             'requestData' => json_encode(['USER_ROLE' , 'USER_USERNAME'])
         ));
@@ -37,7 +37,7 @@ class TokenTest extends DomainTestCase
         $client = $this->runAsUserWithBasicAuth();
         $client->request('POST', '/api/user/token/create', array(
             'type'=> 'BASIC',
-            'intendedFor' => $this->fixtures->getReference(ClientFixture::CLIENT_NAME)->getToken(),
+            'audience' => $this->fixtures->getReference(ClientFixture::CLIENT_NAME)->getToken(),
             'subject' => 'test',
             'requestData' => json_encode(['USER_ROLE'])
         ));
