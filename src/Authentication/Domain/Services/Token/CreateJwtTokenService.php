@@ -103,6 +103,6 @@ class CreateJwtTokenService
     private function sign(): void
     {
         $privateKey  = file_get_contents($this->projectDir . $this->privateKeyLocation);
-        $this->token = JWT::encode($this->tokenArgs, $privateKey, 'RS256');
+        $this->token = JWT::encode($this->token, $privateKey, 'RS256');
     }
 }

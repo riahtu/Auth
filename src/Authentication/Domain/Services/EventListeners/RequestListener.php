@@ -6,7 +6,7 @@
  * Time: 20:17
  */
 
-namespace Authentication\Infrastructure\Domain\EventListeners;
+namespace Authentication\Domain\Services\EventListeners;
 
 use Authentication\Domain\Services\Exceptions\UserDoesntHavePermissionException;
 use Authentication\Domain\Services\Permission\CheckForPermissionService;
