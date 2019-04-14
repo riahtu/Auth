@@ -18,7 +18,6 @@ use Authentication\Application\Service\User\CreateUserRequest;
 use Authentication\Application\Service\User\CreateUserService;
 use Authentication\Application\Service\User\RemoveRoleFromUserRequest;
 use Authentication\Application\Service\User\RemoveRoleFromUserService;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
