@@ -13,6 +13,7 @@ use Authentication\Domain\Services\Exceptions\GeneralDomainServerError;
 use Authentication\Domain\Services\User\NewUserRegistration;
 use Doctrine\ORM\EntityManagerInterface;
 use Authentication\Domain\Entity\Role;
+use OldSound\RabbitMqBundle\RabbitMq\Producer;
 use Transactional\Interfaces\TransactionalServiceInterface;
 
 class CreateUserService implements TransactionalServiceInterface
@@ -26,14 +27,24 @@ class CreateUserService implements TransactionalServiceInterface
      * @var \Doctrine\Common\Persistence\ObjectRepository|\Authentication\Infrastructure\Repositories\RoleRepository
      */
     private $roleRepository;
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
+    /**
+     * @var Producer
+     */
+    private $newUserMessageProducer;
 
     public function __construct(
         NewUserRegistration $newUserRegistrationService,
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        Producer $newUserMessageProducer
     )
     {
         $this->newUserRegistrationService = $newUserRegistrationService;
         $this->roleRepository = $em->getRepository(Role::class);
+        $this->newUserMessageProducer = $newUserMessageProducer;
     }
 
     /**
@@ -54,6 +65,10 @@ class CreateUserService implements TransactionalServiceInterface
                 $request->getUsername(),
                 $request->getPassword(),
                 $role
+        );
+
+        $this->newUserMessageProducer->publish(
+            'string testing'
         );
 
         return array(

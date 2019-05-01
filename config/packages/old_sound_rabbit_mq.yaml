@@ -7,21 +7,17 @@ old_sound_rabbit_mq:
         new_user:
             connection: default
             exchange_options:
-                name: 'new_user_exchange'
+                name: 'new_user'
                 type: 'fanout'
         ban_user:
             connection: default
             exchange_options:
-                name: 'ban_user_exchange'
+                name: 'ban_user'
                 type: 'fanout'
-#    producers:
-#        # use 'old_sound_rabbit_mq.task_producer' service to send data.
-#        task:
-#            connection:       default
-#            exchange_options: { name: 'task', type: direct }
 #    consumers:
-#        task:
+#        new_user:
 #            connection:       default
-#            exchange_options: { name: 'task', type: direct }
-#            queue_options:    { name: 'task'}
-#            callback:         App\Consumer\TaskConsumer
+#            exchange_options: {name: 'new_user', type: fanout}
+#            queue_options:    {name: 'new_user'}
+#            callback:         Authentication\Application\Service\User\CreateUserService
+
