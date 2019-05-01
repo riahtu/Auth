@@ -10,7 +10,10 @@ use OldSound\RabbitMqBundle\RabbitMq\Producer;
 class NewUserCreatedEvent extends Producer
 {
 
-    public function publishMessage(User $user)
+    /**
+     * @param User $user
+     */
+    public function publishMessage(User $user): void
     {
         $msg = [
             'username'=> $user->getUsername(),
