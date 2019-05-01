@@ -6,6 +6,7 @@ old_sound_rabbit_mq:
     producers:
         new_user:
             connection: default
+            class: Authentication\Infrastructure\Domain\Messages\NewUserCreatedEvent
             exchange_options:
                 name: 'new_user'
                 type: 'fanout'
@@ -20,4 +21,5 @@ old_sound_rabbit_mq:
 #            exchange_options: {name: 'new_user', type: fanout}
 #            queue_options:    {name: 'new_user'}
 #            callback:         Authentication\Application\Service\User\CreateUserService
+
 

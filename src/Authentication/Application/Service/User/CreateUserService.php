@@ -11,9 +11,9 @@ namespace Authentication\Application\Service\User;
 
 use Authentication\Domain\Services\Exceptions\GeneralDomainServerError;
 use Authentication\Domain\Services\User\NewUserRegistration;
+use Authentication\Infrastructure\Domain\Messages\NewUserCreatedEvent;
 use Doctrine\ORM\EntityManagerInterface;
 use Authentication\Domain\Entity\Role;
-use OldSound\RabbitMqBundle\RabbitMq\Producer;
 use Transactional\Interfaces\TransactionalServiceInterface;
 
 class CreateUserService implements TransactionalServiceInterface
@@ -39,7 +39,7 @@ class CreateUserService implements TransactionalServiceInterface
     public function __construct(
         NewUserRegistration $newUserRegistrationService,
         EntityManagerInterface $em,
-        Producer $newUserMessageProducer
+        NewUserCreatedEvent $newUserMessageProducer
     )
     {
         $this->newUserRegistrationService = $newUserRegistrationService;
@@ -67,9 +67,7 @@ class CreateUserService implements TransactionalServiceInterface
                 $role
         );
 
-        $this->newUserMessageProducer->publish(
-            'string testing'
-        );
+        $this->newUserMessageProducer->publishMessage($user);
 
         return array(
             'username' => $user->getUsername(),
