@@ -39,11 +39,12 @@ class ClientController extends TransactionalRestController
      *
      * @return JsonResponse
      */
-    public function getPublicKey(GetPublicKeyService $service): JsonResponse
+    public function getPublicKey(GetPublicKeyService $service, Request $request): JsonResponse
     {
         $result =  $service->execute(
             new GetPublicKeyRequest(
-                $this->getUser()
+                $this->getUser(),
+                $request->getClientIp()
             )
         );
 

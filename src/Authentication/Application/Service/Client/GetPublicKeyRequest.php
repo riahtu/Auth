@@ -17,17 +17,21 @@ class GetPublicKeyRequest
      * @var Client
      */
     private $client;
+    private $requestIp;
 
     /**
      * GetPublicKeyRequest constructor.
      *
      * @param Client $client
+     * @param $requestIp
      */
     public function __construct(
-        Client $client
+        Client $client,
+        $requestIp
     )
     {
         $this->client = $client;
+        $this->requestIp = $requestIp;
     }
 
     /**
@@ -36,5 +40,13 @@ class GetPublicKeyRequest
     public function getClient(): Client
     {
         return $this->client;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRequestIp()
+    {
+        return $this->requestIp;
     }
 }
