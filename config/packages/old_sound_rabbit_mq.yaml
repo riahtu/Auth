@@ -20,11 +20,11 @@ old_sound_rabbit_mq:
             exchange_options:
                 name: 'public_key_change'
                 type: 'fanout'
-#    consumers:
-#        new_user:
-#            connection:       default
-#            exchange_options: {name: 'new_user', type: fanout}
-#            queue_options:    {name: 'new_user'}
-#            callback:         Authentication\Application\Service\User\CreateUserService
+    consumers:
+        new_role:
+            connection:       default
+            exchange_options: {name: 'new_role', type: fanout}
+            queue_options:    {name: 'new_role'}
+            callback:         Authentication\Infrastructure\Domain\Consumers\ProcessNewRoleCreatedMessage
 
 
