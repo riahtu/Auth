@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: BlackBit
- * Date: 13-Jan-19
- * Time: 20:44
- */
 
 namespace Authentication\Domain\Services\Exceptions;
 
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class RoleAlreadyExistsException extends DomainException implements DomainExceptionInterface
 {
@@ -18,6 +12,6 @@ class RoleAlreadyExistsException extends DomainException implements DomainExcept
     {
         $return['resource'] = $array;
         $return['error'] = 'Role already exists';
-        parent::__construct(Response::HTTP_CONFLICT , $return);
+        parent::__construct(JsonResponse::HTTP_CONFLICT , $return);
     }
 }

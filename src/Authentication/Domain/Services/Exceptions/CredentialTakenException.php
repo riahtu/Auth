@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: BlackBit
- * Date: 12-Jan-19
- * Time: 15:29
- */
 
 namespace Authentication\Domain\Services\Exceptions;
 
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CredentialTakenException extends DomainException
 {
@@ -17,6 +11,6 @@ class CredentialTakenException extends DomainException
     {
         $return['resource'] = $array;
         $return['error'] = 'Credential taken';
-        parent::__construct(Response::HTTP_CONFLICT , $return);
+        parent::__construct(JsonResponse::HTTP_CONFLICT , $return);
     }
 }

@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: BlackBit
- * Date: 25-Feb-19
- * Time: 19:28
- */
 
 namespace Authentication\Domain\Services\Exceptions;
 
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class TokenGeneratorErrorException extends DomainException implements DomainExceptionInterface
 {
@@ -17,6 +11,6 @@ class TokenGeneratorErrorException extends DomainException implements DomainExce
     {
         $return['error'] = 'Something went wrong while generating your key';
         $return['resource'] = $array;
-        parent::__construct(Response::HTTP_INTERNAL_SERVER_ERROR, $return);
+        parent::__construct(JsonResponse::HTTP_INTERNAL_SERVER_ERROR, $return);
     }
 }

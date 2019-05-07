@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: BlackBit
- * Date: 17-Jan-19
- * Time: 18:44
- */
 
 namespace Authentication\Domain\Services\Exceptions;
 
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class PermissionDoesNotExistException extends DomainException implements DomainExceptionInterface
 {
@@ -17,6 +11,6 @@ class PermissionDoesNotExistException extends DomainException implements DomainE
     {
         $return['resource'] = $array;
         $return['error'] = 'Permission does not exist';
-        parent::__construct(Response::HTTP_CONFLICT , $return);
+        parent::__construct(JsonResponse::HTTP_CONFLICT , $return);
     }
 }
