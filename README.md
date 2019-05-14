@@ -50,6 +50,7 @@ php bin/console rabbitmq:setup-fabric
 ```
 
 #API
+
 Api uses JWT standards and RS256 encryption to create tokens.
 
 To create SSL private/public key: 
@@ -78,6 +79,7 @@ Basic usage (User client side):
 (Example: Sandbox playground 3/3: Front-app ->  https://github.com/AkronimBlack/front-app)
 
 #COMMANDS
+
 If you are adding routes you have to add them to your permissions list so you can give roles access to them
 ```
 -- TO DUMP THE WHOLE PERMISSIONS TABLE AND REIMPORT ALL ROUTES --
