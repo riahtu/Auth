@@ -2,13 +2,13 @@
 
 Sandbox playground 1/3: Authorization server
 
-This is a testing enviroment for trying out new concepts and to play around. However if you were inclined 
+This is a testing environment for trying out new concepts and to play around. However if you were inclined 
 to use it for production or to modify it for your own need i would advise refactoring. For the most part i tried to keep to 
 all the best practices, but since this is only in the "playing around phase" and i still have no idea of what i am making i do not 
 advise using this "as is".
 
 
-Api uses JWT standards and RS256 encription to create tokens.
+Api uses JWT standards and RS256 encryption to create tokens.
 
 To create SSL private/public key: 
 ```
