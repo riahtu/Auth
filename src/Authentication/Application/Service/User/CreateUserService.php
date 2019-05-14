@@ -11,6 +11,7 @@ namespace Authentication\Application\Service\User;
 
 use Authentication\Domain\Services\Exceptions\GeneralDomainServerError;
 use Authentication\Domain\Services\User\NewUserRegistration;
+use Authentication\Infrastructure\Domain\Messages\NewUserCreatedEvent;
 use Doctrine\ORM\EntityManagerInterface;
 use Authentication\Domain\Entity\Role;
 use Transactional\Interfaces\TransactionalServiceInterface;
@@ -26,14 +27,24 @@ class CreateUserService implements TransactionalServiceInterface
      * @var \Doctrine\Common\Persistence\ObjectRepository|\Authentication\Infrastructure\Repositories\RoleRepository
      */
     private $roleRepository;
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
+    /**
+     * @var Producer
+     */
+    private $newUserMessageProducer;
 
     public function __construct(
         NewUserRegistration $newUserRegistrationService,
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        NewUserCreatedEvent $newUserMessageProducer
     )
     {
         $this->newUserRegistrationService = $newUserRegistrationService;
         $this->roleRepository = $em->getRepository(Role::class);
+        $this->newUserMessageProducer = $newUserMessageProducer;
     }
 
     /**
@@ -55,6 +66,8 @@ class CreateUserService implements TransactionalServiceInterface
                 $request->getPassword(),
                 $role
         );
+
+        $this->newUserMessageProducer->publishMessage($user);
 
         return array(
             'username' => $user->getUsername(),

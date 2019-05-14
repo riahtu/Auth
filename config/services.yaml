@@ -34,3 +34,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+
+    # RABBIT MQ PRODUCERS
+    Authentication\Infrastructure\Domain\Messages\NewUserCreatedEvent: '@old_sound_rabbit_mq.new_user_producer'
+    Authentication\Infrastructure\Domain\Messages\UserHasBeenBannedEvent: '@old_sound_rabbit_mq.ban_user_producer'
+    Authentication\Infrastructure\Domain\Messages\PublicKeyHasBeenChangedEvent: '@old_sound_rabbit_mq.public_key_change_producer'

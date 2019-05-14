@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: BlackBit
- * Date: 20-Jan-19
- * Time: 9:43
- */
 
 namespace Authentication\Domain\Services\Exceptions;
 
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class UserDoesntHavePermissionException extends DomainException implements DomainExceptionInterface
 {
@@ -18,6 +12,6 @@ class UserDoesntHavePermissionException extends DomainException implements Domai
     {
         $return['error'] = 'User does not have permission!';
         $return['resource'] = $array;
-        parent::__construct(Response::HTTP_UNAUTHORIZED, $return);
+        parent::__construct(JsonResponse::HTTP_UNAUTHORIZED, $return);
     }
 }

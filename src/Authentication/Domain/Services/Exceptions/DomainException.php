@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: BlackBit
- * Date: 12-Jan-19
- * Time: 15:54
- */
 
 namespace Authentication\Domain\Services\Exceptions;
 

@@ -9,6 +9,8 @@
 namespace Authentication\Application\Service\Client;
 
 
+use Authentication\Domain\Services\Exceptions\ClientIpDoesNotMachException;
+
 class GetPublicKeyService
 {
     private $projectDir;
@@ -29,6 +31,9 @@ class GetPublicKeyService
      */
     public function execute($request = null)
     {
+        if($request->getRequestIp() !== $request->getClient()->getIp()){
+            throw new ClientIpDoesNotMachException(['request_ip' => $request->getRequestIp()]);
+        }
         $file                        = file_get_contents($this->projectDir . $this->publicKeyLocation);
         $returnData['key']           = $file;
         $returnData['requestedBy']   = $request->getClient()->getName();

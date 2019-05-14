@@ -60,7 +60,7 @@ class CreateJwtTokenService
         $this->tokenArgs['aud'] = $audience;
         $this->checkIfValidRequests($requestedData);
         $this->addAdditionalData($user, $requestedData);
-
+        $this->addIdentifier($user);
         $this->sign();
 
         return $this->token;
@@ -98,6 +98,11 @@ class CreateJwtTokenService
                 }
             }
         }
+    }
+
+    private function addIdentifier(User $user): void
+    {
+        $this->tokenArgs['uid'] = bin2hex($user->getCreatedAt()->getTimestamp() . $user->getId());
     }
 
     private function sign(): void

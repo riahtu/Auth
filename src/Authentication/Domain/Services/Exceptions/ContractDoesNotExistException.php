@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: BlackBit
- * Date: 17-Jan-19
- * Time: 11:17
- */
 
 namespace Authentication\Domain\Services\Exceptions;
 
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ContractDoesNotExistException extends DomainException
 {
@@ -17,6 +11,6 @@ class ContractDoesNotExistException extends DomainException
     {
         $return['resource'] = $array;
         $return['error'] = 'Contract can not be found';
-        parent::__construct(Response::HTTP_CONFLICT , $return);
+        parent::__construct(JsonResponse::HTTP_CONFLICT , $return);
     }
 }

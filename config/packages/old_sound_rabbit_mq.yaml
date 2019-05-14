@@ -1,0 +1,34 @@
+old_sound_rabbit_mq:
+    connections:
+        default:
+            url: '%env(RABBITMQ_URL)%'
+
+    producers:
+        new_user:
+            connection: default
+            class: Authentication\Infrastructure\Domain\Messages\NewUserCreatedEvent
+            exchange_options:
+                name: 'new_user'
+                type: 'fanout'
+        ban_user:
+            connection: default
+            exchange_options:
+                name: 'ban_user'
+                type: 'fanout'
+        public_key_change:
+            connection: default
+            exchange_options:
+                name: 'public_key_change'
+                type: 'fanout'
+    consumers:
+        new_role:
+            connection:       default
+            exchange_options: {name: 'new_role', type: fanout}
+            queue_options:    {name: 'new_role'}
+            callback:         Authentication\Infrastructure\Domain\Consumers\ProcessNewRoleCreatedMessage
+        role_deleted:
+            connection:       default
+            exchange_options: {name: 'role_deleted', type: fanout}
+            queue_options:    {name: 'role_deleted'}
+            callback:         Authentication\Infrastructure\Domain\Consumers\ProcessRoleRemovedMessage
+
