@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: BlackBit
- * Date: 13-Jan-19
- * Time: 18:09
- */
 
 namespace Authentication\Application\Service\User;
 
