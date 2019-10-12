@@ -39,7 +39,7 @@ services:
 
     auth:
       image: nginx:alpine
-      container_name: auth
+      container_name: auth-webserver
       working_dir: /application
       networks:
         - reverse_proxy_nginx_reverse-proxy
@@ -47,8 +47,8 @@ services:
       volumes:
           - .:/application
           - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      expose:
-        - "80"
+      ports:
+        - 80
     auth-rabbit:
       image: "rabbitmq:3-management"
       hostname: ${RABBITMQ_DEFAULT_HOSTNAME}
