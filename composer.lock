@@ -12,17 +12,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AkronimBlack/Doctrine-trait-transactional-helper.git",
-                "reference": "716f91b3a98f21c218257365e69c2caab004535d"
+                "reference": "c9602d295543da4f411c799add45fd4c43616f3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AkronimBlack/Doctrine-trait-transactional-helper/zipball/716f91b3a98f21c218257365e69c2caab004535d",
-                "reference": "716f91b3a98f21c218257365e69c2caab004535d",
+                "url": "https://api.github.com/repos/AkronimBlack/Doctrine-trait-transactional-helper/zipball/c9602d295543da4f411c799add45fd4c43616f3c",
+                "reference": "c9602d295543da4f411c799add45fd4c43616f3c",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "~2.5",
-                "symfony/framework-bundle": "~2.7|~3.0|~4.0"
+                "symfony/framework-bundle": "~3.0|~4.0"
             },
             "type": "library",
             "autoload": {
@@ -41,7 +41,7 @@
                 }
             ],
             "description": "Trait to help wrap services in a transactional service that will roll back all changes to DB in case of exception",
-            "time": "2018-12-11T20:17:07+00:00"
+            "time": "2019-10-12T11:39:22+00:00"
         },
         {
             "name": "doctrine/annotations",

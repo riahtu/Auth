@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Authentication\Application\Service\Client\CreateNewClientService;
 use Authentication\Application\Service\Client\CreateNewClientRequest;
+use Transactional\TransactionalRestController;
 
 
 class ClientController extends TransactionalRestController

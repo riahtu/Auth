@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: BlackBit
- * Date: 13-Jan-19
- * Time: 10:01
- */
 
 namespace Authentication\Infrastructure\UI\Http;
 
@@ -13,10 +7,10 @@ use Authentication\Application\Service\Role\CreateNewRoleRequest;
 use Authentication\Application\Service\Role\CreateNewRoleService;
 use Authentication\Application\Service\Role\RemoveRoleRequest;
 use Authentication\Application\Service\Role\RemoveRoleService;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Transactional\TransactionalRestController;
 
 /**
  * Class RoleController

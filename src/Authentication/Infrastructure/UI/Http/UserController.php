@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: BlackBit
- * Date: 15-Dec-18
- * Time: 10:30
- */
 
 namespace Authentication\Infrastructure\UI\Http;
 
@@ -21,6 +15,7 @@ use Authentication\Application\Service\User\RemoveRoleFromUserService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Transactional\TransactionalRestController;
 
 class UserController extends TransactionalRestController
 {
